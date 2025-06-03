@@ -17,6 +17,7 @@ function Contact() {
     email: '',
     message: ''
   })
+  const [formStatus, setFormStatus] = useState('idle') // idle, submitting, success, error
 
   const handleChange = (e) => {
     setFormData({
@@ -25,11 +26,46 @@ function Contact() {
     })
   }
 
-  const handleSubmit = (e) => {
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Qui potrai implementare l'invio del form
-    console.log('Form data:', formData)
-    alert('Messaggio inviato! (Questa è solo una demo)')
+    setFormStatus('submitting')
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "contact",
+          ...formData
+        })
+      })
+      
+      setFormStatus('success')
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      })
+      
+      // Reset form status after 5 seconds
+      setTimeout(() => {
+        setFormStatus('idle')
+      }, 5000)
+    } catch (error) {
+      console.error('Error:', error)
+      setFormStatus('error')
+      
+      // Reset form status after 5 seconds
+      setTimeout(() => {
+        setFormStatus('idle')
+      }, 5000)
+    }
   }
   return (
     <section id="contact" className="contact" ref={sectionRef}>
@@ -75,7 +111,20 @@ function Contact() {
               </div>
             </div>
           </div>
-          <form className="contact-form neon-pulse" onSubmit={handleSubmit}>
+          <form 
+            className="contact-form neon-pulse" 
+            onSubmit={handleSubmit}
+            name="contact" 
+            method="POST" 
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p style={{ display: 'none' }}>
+              <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+              </label>
+            </p>
             <div className="form-group">
               <label htmlFor="name">{t('name')}</label>
               <input
@@ -108,8 +157,47 @@ function Contact() {
                 onChange={handleChange}
                 required
               ></textarea>
-            </div>            <button type="submit" className="btn btn-primary neon-pulse">
-              {t('sendMessage')}
+            </div>            
+            
+            {formStatus === 'success' && (
+              <div className="form-message success" style={{ 
+                color: '#00ff41', 
+                marginBottom: '1rem', 
+                padding: '0.5rem',
+                border: '1px solid #00ff41',
+                borderRadius: '4px',
+                backgroundColor: 'rgba(0, 255, 65, 0.1)'
+              }}>
+                ✅ {t('messageSent') || 'Messaggio inviato con successo!'}
+              </div>
+            )}
+            
+            {formStatus === 'error' && (
+              <div className="form-message error" style={{ 
+                color: '#ff4757', 
+                marginBottom: '1rem', 
+                padding: '0.5rem',
+                border: '1px solid #ff4757',
+                borderRadius: '4px',
+                backgroundColor: 'rgba(255, 71, 87, 0.1)'
+              }}>
+                ❌ {t('messageError') || 'Errore nell\'invio del messaggio. Riprova.'}
+              </div>
+            )}
+
+            <button 
+              type="submit" 
+              className="btn btn-primary neon-pulse"
+              disabled={formStatus === 'submitting'}
+              style={{
+                opacity: formStatus === 'submitting' ? 0.7 : 1,
+                cursor: formStatus === 'submitting' ? 'not-allowed' : 'pointer'
+              }}
+            >
+              {formStatus === 'submitting' 
+                ? (t('sending') || 'Invio in corso...')
+                : (t('sendMessage') || 'Invia Messaggio')
+              }
             </button>
           </form>
         </div>

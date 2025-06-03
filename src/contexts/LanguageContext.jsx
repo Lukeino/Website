@@ -128,6 +128,9 @@ const translations = {  it: {
     email: "Email",
     message: "Messaggio",
     sendMessage: "Invia Messaggio",
+    sending: "Invio in corso...",
+    messageSent: "Messaggio inviato con successo!",
+    messageError: "Errore nell'invio del messaggio. Riprova.",
     
     // Footer
     allRightsReserved: "Tutti i diritti riservati."
@@ -245,6 +248,9 @@ const translations = {  it: {
     email: "Email",
     message: "Message",
     sendMessage: "Send Message",
+    sending: "Sending...",
+    messageSent: "Message sent successfully!",
+    messageError: "Error sending message. Please try again.",
     
     // Footer
     allRightsReserved: "All rights reserved."
