@@ -30,10 +30,13 @@ function Projects() {
         id: 3,
         title: t('hollowDungeonsTitle'),
         description: t('hollowDungeonsDesc'),
-        technologies: ["Unity", "C#"],        link: "#",
+        technologies: ["Unity", "C#"],        
+        link: "#",
         github: "#",
         image: hollowDungeonsImage,
-        hideDemoButton: true
+        hideDemoButton: true,
+        hideGitHubButton: true,
+        showInDevelopment: true
       },      {
         id: 4,
         title: t('prototypeGamesTitle'),
@@ -123,6 +126,9 @@ function Projects() {
           {project.technologies.map(tech => (
             <span key={tech} className="tech-tag">{tech}</span>
           ))}
+          {project.showInDevelopment && (
+            <span className="development-tag">{t('inDevelopment')}</span>
+          )}
         </div>        <div className="project-links">
           {!project.hideDemoButton && (
             <a 

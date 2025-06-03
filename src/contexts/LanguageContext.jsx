@@ -69,14 +69,13 @@ const translations = {  it: {
     // StatsConverter Project
     statsConverterTitle: "StatsConverter",
     statsConverterDesc: "Piccolo software sviluppato usando WPF (Windows Presentation Foundation) che sfrutta la tecnologia Google \"Tesseract OCR\" per convertire i file .jpg/.png in .txt",
-    
-    // Featured Project - The Hollow Dungeons
+      // Featured Project - The Hollow Dungeons
     hollowDungeonsTitle: "The Hollow Dungeons",
     hollowDungeonsDesc: "Un videogioco dark fantasy RPG in 3D che combina atmosfere gotiche con una grafica retro nostalgica.",
     developedByAlias: "Sviluppato sotto l'alias Madspace Interactive",
-      // Featured Project - CareerConnect
+    inDevelopment: "In Sviluppo",// Featured Project - CareerConnect
     careerConnectTitle: "CareerConnect",
-    careerConnectDesc: "Piattaforma innovativa di recruiting e ricerca lavoro sviluppata seguendo metodologie agili. Una soluzione moderna per connettere talenti e opportunità professionali.",    // Portfolio Site
+    careerConnectDesc: "Piattaforma innovativa di recruiting e ricerca lavoro sviluppata in team seguendo metodologie agili. Una soluzione moderna per connettere talenti e opportunità professionali.",// Portfolio Site
     portfolioSiteTitle: "Portfolio",
     portfolioSiteDesc: "Questo sito, realizzato per mostrare le mie capacità e i miei progetti!",
     
@@ -187,14 +186,13 @@ const translations = {  it: {
     // StatsConverter Project
     statsConverterTitle: "StatsConverter",
     statsConverterDesc: "Small software developed using WPF (Windows Presentation Foundation) that leverages Google's \"Tesseract OCR\" technology to convert .jpg/.png files to .txt",
-    
-    // Featured Project - The Hollow Dungeons
+      // Featured Project - The Hollow Dungeons
     hollowDungeonsTitle: "The Hollow Dungeons",
     hollowDungeonsDesc: "A dark fantasy 3D RPG that combines gothic atmospheres with nostalgic retro graphics.",
     developedByAlias: "Developed under the Madspace Interactive alias",
-      // Featured Project - CareerConnect
+    inDevelopment: "In Development",// Featured Project - CareerConnect
     careerConnectTitle: "CareerConnect",
-    careerConnectDesc: "Innovative recruiting and job search platform developed using agile methodologies. A modern solution for connecting talents with professional opportunities.",    // Portfolio Site
+    careerConnectDesc: "Innovative recruiting and job search platform developed in a team using agile methodologies. A modern solution for connecting talents with professional opportunities.",// Portfolio Site
     portfolioSiteTitle: "Portfolio",
     portfolioSiteDesc: "This website, created to showcase my skills and projects!",
     
