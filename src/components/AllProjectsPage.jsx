@@ -16,6 +16,7 @@ function AllProjectsPage() {
   const { t } = useLanguage();
   const location = useLocation();
   const sectionRef = useScrollAnimation();
+  const softwareTableRef = useStaggeredAnimation(150);
   const gameTableRef = useStaggeredAnimation(150);
   const mlTableRef = useStaggeredAnimation(150);
 
@@ -33,11 +34,21 @@ function AllProjectsPage() {
 
   // Project data for tables
   const tableProjects = {
+    software: [
+      {
+        id: 'sw1',
+        title: t('statsConverterTitle'),
+        description: t('statsConverterDesc'),
+        githubLink: 'https://github.com/Lukeino/StatsConverter-0.1.0a',
+        playLink: null,
+        downloadLink: 'https://mega.nz/file/HK5lkBqL#QNWWsfOOJcmGZ55nSC3U-4en_WDpROoscFrDCaQGJHc'
+      }
+    ],
     prototypes: [
       {
         id: 'proto1',
         title: 'Ghost Tower',
-        description: 'Videogioco 2D sviluppato in Construct 3 in cui bisogna sopravvivere il più a lungo schivando i fantasmi con il mouse.',
+        description: t('ghostTowerDesc'),
         githubLink: null,
         playLink: null,
         downloadLink: null
@@ -45,7 +56,7 @@ function AllProjectsPage() {
       {
         id: 'proto2', 
         title: 'Arcade Fantasy',
-        description: 'Prototipo 3D di videogioco sviluppato in Unity. 4 giocatori devono giocare a giochi arcade per guadagnare punti e poi sopravvivere all\'attacco di titani.',
+        description: t('arcadeFantasyDesc'),
         githubLink: null,
         playLink: null,
         downloadLink: null
@@ -53,7 +64,7 @@ function AllProjectsPage() {
       {
         id: 'proto3',
         title: 'Back to Earth - Prologue',
-        description: 'Prototipo 3D di walking simulator horror con grafica retro. Scova il mistero che circonda una corporazione diabolica e una spada antica.',
+        description: t('backToEarthDesc'),
         githubLink: null,
         playLink: null,
         downloadLink: null
@@ -61,7 +72,7 @@ function AllProjectsPage() {
       {
         id: 'proto4',
         title: 'VortexCorp Lost Tapes',
-        description: 'Prototipo 3D di walking simulator analogue horror con effetti VHS. Vivi le esperienze finali registrate di tre scienziati alla ricerca di antichi manufatti dal potere paranormale.',
+        description: t('vortexCorpDesc'),
         githubLink: null,
         playLink: null,
         downloadLink: 'https://mega.nz/file/DC5FRSQb#K1ghRzG3YO0_tUIjDi6ULX7LoVhvzyBik5lq_u5aekc'
@@ -71,7 +82,7 @@ function AllProjectsPage() {
       {
         id: 'ml1',
         title: 'Predizione Prezzo Laptop',
-        description: 'Sfruttando il Random Forest e la Regressione Lineare, prevede il prezzo di qualsiasi Laptop inserito, basandosi su un database.',
+        description: t('laptopPricePredictionDesc'),
         githubLink: 'https://github.com/Lukeino/ML-Sklearn-Projects/tree/main/LaptopPricePrediction',
         playLink: null,
         downloadLink: null
@@ -79,7 +90,7 @@ function AllProjectsPage() {
       {
         id: 'ml2',
         title: 'Medievalia',
-        description: 'Un videogioco testuale scritto in Python che sfrutta la tecnologia Q-Learning per il boss finale.',
+        description: t('medievaliaDesc'),
         githubLink: 'https://github.com/Lukeino/Medievalia',
         playLink: null,
         downloadLink: null
@@ -88,8 +99,8 @@ function AllProjectsPage() {
 
   const renderTableProjectRow = (project) => (
     <tr key={project.id} className="luca-stagger-item">
-      <td data-label="TITOLO PROGETTO" className="project-title">{project.title}</td>
-      <td data-label="DESCRIZIONE" className="project-description">{project.description}</td>
+      <td data-label={t('projectTitle')} className="project-title">{project.title}</td>
+      <td data-label={t('projectDescription')} className="project-description">{project.description}</td>
       <td data-label="" className="project-actions">
         <div className="action-buttons">
           {project.githubLink ? (
@@ -144,6 +155,25 @@ function AllProjectsPage() {
         <div className="container">
           <h2 className="pixel-text">{t('allProjectsTitle')}</h2>
 
+          {/* Software Development Table */}
+          <div className="project-category" id="software-development">
+            <h3 className="category-title centered-title">{t('softwareDevProjects')}</h3>
+            <div className="table-responsive" ref={softwareTableRef}>
+              <table className="project-table">
+                <thead>
+                  <tr>
+                    <th className="centered-header">{t('projectTitle')}</th>
+                    <th className="centered-header">{t('projectDescription')}</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tableProjects.software.map(renderTableProjectRow)}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           {/* Game Prototypes Table */}
           <div className="project-category" id="game-prototypes">
             <h3 className="category-title centered-title">{t('gamePrototypes', 'Prototipi di Gioco')}</h3>
@@ -151,8 +181,8 @@ function AllProjectsPage() {
               <table className="project-table">
                 <thead>
                   <tr>
-                    <th className="centered-header">TITOLO PROGETTO</th>
-                    <th className="centered-header">DESCRIZIONE</th>
+                    <th className="centered-header">{t('projectTitle')}</th>
+                    <th className="centered-header">{t('projectDescription')}</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -170,8 +200,8 @@ function AllProjectsPage() {
               <table className="project-table">
                 <thead>
                   <tr>
-                    <th className="centered-header">TITOLO PROGETTO</th>
-                    <th className="centered-header">DESCRIZIONE</th>
+                    <th className="centered-header">{t('projectTitle')}</th>
+                    <th className="centered-header">{t('projectDescription')}</th>
                     <th></th>
                   </tr>
                 </thead>

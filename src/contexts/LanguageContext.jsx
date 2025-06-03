@@ -24,6 +24,8 @@ const translations = {  it: {
     technologies: "Tecnologie",
     link: "Link",
     viewProject: "Visualizza Progetto",
+    projectTitle: "TITOLO",
+    projectDescription: "DESCRIZIONE",
 
     // Hero Section
     heroTitle: "Luca Iantosco",
@@ -61,7 +63,14 @@ const translations = {  it: {
     webAppProjects: "Applicazioni Web",
     researchAiProjects: "Ricerca e IA",
     gamePrototypes: "Prototipi di Gioco",
-    mlProjects: "Progetti ML",// Featured Project - The Hollow Dungeons
+    mlProjects: "Progetti ML",
+    softwareDevProjects: "Software Development",
+    
+    // StatsConverter Project
+    statsConverterTitle: "StatsConverter",
+    statsConverterDesc: "Piccolo software sviluppato usando WPF (Windows Presentation Foundation) che sfrutta la tecnologia Google \"Tesseract OCR\" per convertire i file .jpg/.png in .txt",
+    
+    // Featured Project - The Hollow Dungeons
     hollowDungeonsTitle: "The Hollow Dungeons",
     hollowDungeonsDesc: "Un videogioco dark fantasy RPG in 3D che combina atmosfere gotiche con una grafica retro nostalgica.",
     developedByAlias: "Sviluppato sotto l'alias Madspace Interactive",
@@ -93,6 +102,15 @@ const translations = {  it: {
     medievaliaTitle: "Medievalia",
     medievaliaDesc: "Un videogioco testuale scritto in Python che sfrutta la tecnologia Q-Learning per il boss finale.",
     
+    // Game Prototypes descriptions
+    ghostTowerDesc: "Videogioco 2D sviluppato in Construct 3 in cui bisogna sopravvivere il più a lungo schivando i fantasmi con il mouse.",
+    arcadeFantasyDesc: "Prototipo 3D di videogioco sviluppato in Unity. 4 giocatori devono giocare a giochi arcade per guadagnare punti e poi sopravvivere all'attacco di titani.",
+    backToEarthDesc: "Prototipo 3D di walking simulator horror con grafica retro. Scova il mistero che circonda una corporazione diabolica e una spada antica.",
+    vortexCorpDesc: "Prototipo 3D di walking simulator analogue horror con effetti VHS. Vivi le esperienze finali registrate di tre scienziati alla ricerca di antichi manufatti dal potere paranormale.",
+    
+    // ML Projects descriptions
+    laptopPricePredictionDesc: "Sfruttando il Random Forest e la Regressione Lineare, prevede il prezzo di qualsiasi Laptop inserito, basandosi su un database.",
+    
     browseProjects: "Sfoglia i progetti",
     allProjectsTitle: "Archivio Progetti",
       demo: "Demo",
@@ -121,13 +139,15 @@ const translations = {  it: {
     projects: "Projects",
     contact: "Contact",
     downloadCV: "Download CV",
-      // Table headers
+    // Table headers
     title: "Title",
     projectName: "Project Name",
     description: "Description",
     technologies: "Technologies",
     link: "Link",
-    viewProject: "View Project",// Hero Section
+    viewProject: "View Project",
+    projectTitle: "TITLE",
+    projectDescription: "DESCRIPTION",// Hero Section
     heroTitle: "Luca Iantosco",
     heroSubtitle: "Software & Game Developer",    heroSubtitleVariants: [
       "Software & Game Developer",
@@ -161,7 +181,14 @@ const translations = {  it: {
     webAppProjects: "Web Applications", 
     researchAiProjects: "Research & AI",
     gamePrototypes: "Game Prototypes",
-    mlProjects: "ML Projects",// Featured Project - The Hollow Dungeons
+    mlProjects: "ML Projects",
+    softwareDevProjects: "Software Development",
+    
+    // StatsConverter Project
+    statsConverterTitle: "StatsConverter",
+    statsConverterDesc: "Small software developed using WPF (Windows Presentation Foundation) that leverages Google's \"Tesseract OCR\" technology to convert .jpg/.png files to .txt",
+    
+    // Featured Project - The Hollow Dungeons
     hollowDungeonsTitle: "The Hollow Dungeons",
     hollowDungeonsDesc: "A dark fantasy 3D RPG that combines gothic atmospheres with nostalgic retro graphics.",
     developedByAlias: "Developed under the Madspace Interactive alias",
@@ -192,6 +219,15 @@ const translations = {  it: {
     // Medievalia Project
     medievaliaTitle: "Medievalia",
     medievaliaDesc: "A text-based video game written in Python that leverages Q-Learning technology for the final boss.",
+    
+    // Game Prototypes descriptions
+    ghostTowerDesc: "2D video game developed in Construct 3 where you must survive as long as possible by dodging ghosts with the mouse.",
+    arcadeFantasyDesc: "3D video game prototype developed in Unity. 4 players must play arcade games to earn points and then survive the attack of titans.",
+    backToEarthDesc: "3D prototype of horror walking simulator with retro graphics. Uncover the mystery surrounding a diabolical corporation and an ancient sword.",
+    vortexCorpDesc: "3D prototype of analogue horror walking simulator with VHS effects. Experience the final recorded experiences of three scientists searching for ancient artifacts with paranormal power.",
+    
+    // ML Projects descriptions
+    laptopPricePredictionDesc: "Using Random Forest and Linear Regression, it predicts the price of any laptop entered, based on a database.",
     
     browseProjects: "Browse projects",
     allProjectsTitle: "Project Archive",
