@@ -24,10 +24,9 @@ import {
   SiStrapi,
   SiBlender
 } from 'react-icons/si';
-import { FaBrain, FaJava, FaHtml5 } from 'react-icons/fa';
+import { FaBrain, FaJava, FaHtml5, FaJoomla, FaCss3Alt } from 'react-icons/fa';
 import { TbBrandCSharp } from 'react-icons/tb';
 import { GiBroadsword } from 'react-icons/gi';
-import { PiFileCssLight } from 'react-icons/pi';
 
 function Skills() {
   const { t } = useLanguage();
@@ -108,10 +107,10 @@ function Skills() {
             <div className="skills-grid" ref={webDevGridRef}>
               <div className="skill-item pixel-float luca-stagger-item">
                 <FaHtml5 className="skill-icon" />
-                <span>HTML</span>
+                <span>HTML5</span>
               </div>
               <div className="skill-item pixel-float luca-stagger-item">
-                <PiFileCssLight className="skill-icon" />
+                <FaCss3Alt className="skill-icon" />
                 <span>CSS</span>
               </div>
               <div className="skill-item pixel-float luca-stagger-item">
@@ -125,6 +124,10 @@ function Skills() {
               <div className="skill-item pixel-float luca-stagger-item">
                 <SiStrapi className="skill-icon" />
                 <span>Strapi</span>
+              </div>
+              <div className="skill-item pixel-float luca-stagger-item">
+                <FaJoomla className="skill-icon" />
+                <span>Joomla!</span>
               </div>
             </div>
           </div>
