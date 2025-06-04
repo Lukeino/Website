@@ -57,8 +57,9 @@ const translations = {  it: {
     skillsTitle: "Le Mie Competenze",    // Skill Categories
     gameEngineCategory: "Game Engine & Strumenti",
     programmingLanguagesCategory: "Linguaggi di Programmazione", 
-    webDevelopmentCategory: "Sviluppo Web",
+    webDevelopmentCategory: "Sviluppo Software & Web",
     databaseCategory: "Database",
+    securityCategory: "Sicurezza e Analisi",
     aiMlCategory: "AI/ML",    // Projects Section
     projectsTitle: "I Miei Progetti",
     featuredProjects: "Progetti in Evidenza",
@@ -179,8 +180,9 @@ const translations = {  it: {
     skillsTitle: "My Skills",    // Skill Categories
     gameEngineCategory: "Game Engines & Tools",
     programmingLanguagesCategory: "Programming Languages",
-    webDevelopmentCategory: "Web Development", 
+    webDevelopmentCategory: "Web & Software Development", 
     databaseCategory: "Database",
+    securityCategory: "Security & Analysis",
     aiMlCategory: "AI/ML",    // Projects Section
     projectsTitle: "My Projects",
     featuredProjects: "Featured Projects",
