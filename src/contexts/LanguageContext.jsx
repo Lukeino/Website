@@ -34,11 +34,9 @@ const translations = {  it: {
     heroSubtitle: "Software & Game Developer",
     
     heroSubtitleVariants: [
-      "Software & Game Developer",
-      "Unity Developer",
       "Full-Stack Developer",
-      "AI & Machine Learning",
-      "Web Developer",
+      "Software, Game & Web Developer",
+      "Machine Learning & AI",
       "Worldbuilder"
     ],    heroDescription: "Creo mondi virtuali.",
     myProjects: "Esplora i Progetti",
@@ -156,11 +154,9 @@ const translations = {  it: {
     projectDescription: "DESCRIPTION",// Hero Section
     heroTitle: "Luca Iantosco",
     heroSubtitle: "Software & Game Developer",    heroSubtitleVariants: [
-      "Software & Game Developer",
-      "Unity Developer",
       "Full-Stack Developer",
-      "AI & Machine Learning",
-      "Web Developer",
+      "Software, Game & Web Developer",
+      "Machine Learning & AI",
       "Worldbuilder"
     ],    heroDescription: "I create virtual worlds.",
     myProjects: "Explore Projects",
