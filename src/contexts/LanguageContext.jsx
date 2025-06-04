@@ -104,10 +104,10 @@ const translations = {  it: {
     medievaliaDesc: "Un videogioco testuale scritto in Python che sfrutta la tecnologia Q-Learning per il boss finale.",
     
     // Game Prototypes descriptions
-    ghostTowerDesc: "Videogioco 2D sviluppato in Construct 3 in cui bisogna sopravvivere il più a lungo schivando i fantasmi con il mouse.",
-    arcadeFantasyDesc: "Prototipo 3D di videogioco sviluppato in Unity. 4 giocatori devono giocare a giochi arcade per guadagnare punti e poi sopravvivere all'attacco di titani.",
-    backToEarthDesc: "Prototipo 3D di walking simulator horror con grafica retro. Scova il mistero che circonda una corporazione diabolica e una spada antica.",
-    vortexCorpDesc: "Prototipo 3D di walking simulator analogue horror con effetti VHS. Vivi le esperienze finali registrate di tre scienziati alla ricerca di antichi manufatti dal potere paranormale.",
+    ghostTowerDesc: "Videogioco 2D sviluppato in Construct 3. Schiva tutti i nemici utilizzando il mouse, cercando di sopravvivere il più a lungo possibile.",
+    arcadeFantasyDesc: "Prototipo di videogioco co-op 3D sviluppato in Unity e C#. 4 giocatori iniziano la partita nell'hub sfidandosi a diversi giochi arcade per guadagnare punti, nella seconda fase bisogna sopravvivere l'arrivo di mostri giganti.",
+    backToEarthDesc: "Prototipo di videogioco 3D horror, sviluppato in Unity e C#. Il giocatore deve scoprire i misteri che aleggiano attorno alla VortexCorp ed i suoi whistleblower scomparsi.",
+    vortexCorpDesc: "Prototipo di videogioco 3D analog horror, sviluppato in Unity HDRP e C#. Il giocatore seleziona una videocassetta che registra gli ultimi momenti di vita di alcuni scienziati della VortexCorp, in epoche diverse, alla ricerca di antichi frammenti di una spada.",
     
     // ML Projects descriptions
     laptopPricePredictionDesc: "Sfruttando il Random Forest e la Regressione Lineare, prevede il prezzo di qualsiasi Laptop inserito, basandosi su un database.",
@@ -225,10 +225,10 @@ const translations = {  it: {
     medievaliaDesc: "A text-based video game written in Python that leverages Q-Learning technology for the final boss.",
     
     // Game Prototypes descriptions
-    ghostTowerDesc: "2D video game developed in Construct 3 where you must survive as long as possible by dodging ghosts with the mouse.",
-    arcadeFantasyDesc: "3D video game prototype developed in Unity. 4 players must play arcade games to earn points and then survive the attack of titans.",
-    backToEarthDesc: "3D prototype of horror walking simulator with retro graphics. Uncover the mystery surrounding a diabolical corporation and an ancient sword.",
-    vortexCorpDesc: "3D prototype of analogue horror walking simulator with VHS effects. Experience the final recorded experiences of three scientists searching for ancient artifacts with paranormal power.",
+    ghostTowerDesc: "2D video game developed in Construct 3. Dodge all enemies using the mouse, trying to survive as long as possible.",
+    arcadeFantasyDesc: "3D co-op video game prototype developed in Unity and C#. 4 players start the match in the hub challenging each other to various arcade games to earn points, in the second phase they must survive the arrival of giant monsters.",
+    backToEarthDesc: "3D horror video game prototype, developed in Unity and C#. The player must discover the mysteries surrounding VortexCorp and its missing whistleblowers.",
+    vortexCorpDesc: "3D analog horror video game prototype, developed in Unity HDRP and C#. The player selects a videotape that records the last moments of life of some VortexCorp scientists, in different eras, searching for ancient fragments of a sword.",
     
     // ML Projects descriptions
     laptopPricePredictionDesc: "Using Random Forest and Linear Regression, it predicts the price of any laptop entered, based on a database.",
