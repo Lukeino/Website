@@ -5,12 +5,31 @@
  * Date: June 2, 2025
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useLocation } from 'react-router-dom';
 import { useScrollAnimation, useStaggeredAnimation } from '../hooks/useScrollAnimation';
 import Header from './Header';
 import '../styles/App.css';
+
+// Import project images - main project images
+import prototipiGif from '../assets/Prototipi.gif';
+import sklearnPng from '../assets/Sklearn.png';
+import careerConnectPng from '../assets/CareerConnect.png';
+import portfolioPng from '../assets/Portfolio.png';
+import hollowDungeonsPng from '../assets/TheHollowDungeons.jpg';
+
+// Project gallery images configuration - manual setup like GitHub/Download buttons
+// All projects disabled for now
+const projectGalleries = {
+  'Ghost Tower': [], // Disabled
+  'Arcade Fantasy': [], // Disabled
+  'Medievalia': [], // Disabled
+  'StatsConverter': [], // Disabled
+  'Predizione Prezzo Laptop': [], // Disabled
+  'Back to Earth - Prologue': [], // Disabled
+  'VortexCorp Lost Tapes': [] // Disabled
+};
 
 function AllProjectsPage() {
   const { t } = useLanguage();
@@ -19,6 +38,11 @@ function AllProjectsPage() {
   const softwareTableRef = useStaggeredAnimation(150);
   const gameTableRef = useStaggeredAnimation(150);
   const mlTableRef = useStaggeredAnimation(150);
+
+  // Gallery state
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [currentProject, setCurrentProject] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Scroll to the correct section when page loads with hash
   useEffect(() => {
@@ -32,6 +56,61 @@ function AllProjectsPage() {
     }
   }, [location.hash]);
 
+  // Gallery functions
+  const openGallery = (project) => {
+    setCurrentProject(project);
+    setCurrentImageIndex(0);
+    setGalleryOpen(true);
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
+  };
+
+  const closeGallery = () => {
+    setGalleryOpen(false);
+    setCurrentProject(null);
+    setCurrentImageIndex(0);
+    document.body.style.overflow = 'auto'; // Restore scroll
+  };
+
+  const nextImage = () => {
+    if (currentProject && currentProject.images) {
+      setCurrentImageIndex((prev) => 
+        prev === currentProject.images.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
+
+  const prevImage = () => {
+    if (currentProject && currentProject.images) {
+      setCurrentImageIndex((prev) => 
+        prev === 0 ? currentProject.images.length - 1 : prev - 1
+      );
+    }
+  };
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!galleryOpen) return;
+      
+      switch (e.key) {
+        case 'Escape':
+          closeGallery();
+          break;
+        case 'ArrowLeft':
+          prevImage();
+          break;
+        case 'ArrowRight':
+          nextImage();
+          break;
+        default:
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [galleryOpen, currentProject]);
+
   // Project data for tables
   const tableProjects = {
     software: [
@@ -41,7 +120,8 @@ function AllProjectsPage() {
         description: t('statsConverterDesc'),
         githubLink: 'https://github.com/Lukeino/StatsConverter-0.1.0a',
         playLink: null,
-        downloadLink: 'https://mega.nz/file/HK5lkBqL#QNWWsfOOJcmGZ55nSC3U-4en_WDpROoscFrDCaQGJHc'
+        downloadLink: 'https://mega.nz/file/HK5lkBqL#QNWWsfOOJcmGZ55nSC3U-4en_WDpROoscFrDCaQGJHc',
+        images: projectGalleries['StatsConverter'] || []
       }
     ],
     prototypes: [
@@ -51,7 +131,8 @@ function AllProjectsPage() {
         description: t('ghostTowerDesc'),
         githubLink: null,
         playLink: null,
-        downloadLink: null
+        downloadLink: null,
+        images: projectGalleries['Ghost Tower'] || []
       },
       {
         id: 'proto2', 
@@ -59,7 +140,8 @@ function AllProjectsPage() {
         description: t('arcadeFantasyDesc'),
         githubLink: null,
         playLink: null,
-        downloadLink: null
+        downloadLink: null,
+        images: projectGalleries['Arcade Fantasy'] || []
       },
       {
         id: 'proto3',
@@ -67,7 +149,8 @@ function AllProjectsPage() {
         description: t('backToEarthDesc'),
         githubLink: null,
         playLink: null,
-        downloadLink: null
+        downloadLink: null,
+        images: projectGalleries['Back to Earth - Prologue'] || []
       },
       {
         id: 'proto4',
@@ -75,7 +158,8 @@ function AllProjectsPage() {
         description: t('vortexCorpDesc'),
         githubLink: null,
         playLink: null,
-        downloadLink: 'https://mega.nz/file/DC5FRSQb#K1ghRzG3YO0_tUIjDi6ULX7LoVhvzyBik5lq_u5aekc'
+        downloadLink: 'https://mega.nz/file/DC5FRSQb#K1ghRzG3YO0_tUIjDi6ULX7LoVhvzyBik5lq_u5aekc',
+        images: projectGalleries['VortexCorp Lost Tapes'] || []
       }
     ],
     sklearn: [
@@ -85,7 +169,8 @@ function AllProjectsPage() {
         description: t('laptopPricePredictionDesc'),
         githubLink: 'https://github.com/Lukeino/ML-Sklearn-Projects/tree/main/LaptopPricePrediction',
         playLink: null,
-        downloadLink: null
+        downloadLink: null,
+        images: projectGalleries['Predizione Prezzo Laptop'] || []
       },
       {
         id: 'ml2',
@@ -93,9 +178,11 @@ function AllProjectsPage() {
         description: t('medievaliaDesc'),
         githubLink: 'https://github.com/Lukeino/Medievalia',
         playLink: null,
-        downloadLink: null
+        downloadLink: null,
+        images: projectGalleries['Medievalia'] || []
       }
-    ]  };
+    ]
+  };
 
   const renderTableProjectRow = (project) => (
     <tr key={project.id} className="luca-stagger-item">
@@ -116,16 +203,22 @@ function AllProjectsPage() {
               </svg>
             </span>
           )}
-          {project.playLink ? (
-            <a href={project.playLink} className="btn-icon play-btn" target="_blank" rel="noopener noreferrer" title="Play">
+          {project.images && project.images.length > 0 ? (
+            <button 
+              onClick={() => openGallery(project)} 
+              className="btn-icon image-btn" 
+              title={t('viewScreenshots')}
+            >
               <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093L6.52 10.41l-2.105-1.946a.5.5 0 0 0-.676.017L1.002 10.25V3a1 1 0 0 1 1-1h12z"/>
               </svg>
-            </a>
+            </button>
           ) : (
-            <span className="btn-icon play-btn disabled" title="Non disponibile">
+            <span className="btn-icon image-btn disabled" title={t('noImagesAvailable')}>
               <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093L6.52 10.41l-2.105-1.946a.5.5 0 0 0-.676.017L1.002 10.25V3a1 1 0 0 1 1-1h12z"/>
               </svg>
             </span>
           )}
@@ -213,6 +306,64 @@ function AllProjectsPage() {
           </div>
         </div>
       </section>
+
+      {/* Image Gallery Overlay */}
+      {galleryOpen && currentProject && (
+        <div className="gallery-overlay" onClick={closeGallery}>
+          <div className="gallery-container" onClick={(e) => e.stopPropagation()}>
+            <button className="gallery-close" onClick={closeGallery}>
+              <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+              </svg>
+            </button>
+            
+            <div className="gallery-header">
+              <div className="gallery-title-section">
+                <p className="gallery-subtitle">{t('imageGallery')}</p>
+                <h3 className="gallery-title">{currentProject.title}</h3>
+              </div>
+            </div>
+
+            <div className="gallery-content">
+              {currentProject.images && currentProject.images.length > 1 && (
+                <button className="gallery-nav gallery-prev" onClick={prevImage}>
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                  </svg>
+                </button>
+              )}
+
+              <div className="gallery-image-container">
+                <img 
+                  src={currentProject.images?.[currentImageIndex]} 
+                  alt={`${currentProject.title} - Screenshot ${currentImageIndex + 1}`}
+                  className="gallery-image"
+                />
+              </div>
+
+              {currentProject.images && currentProject.images.length > 1 && (
+                <button className="gallery-nav gallery-next" onClick={nextImage}>
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+                </button>
+              )}
+            </div>
+
+            {currentProject.images && currentProject.images.length > 1 && (
+              <div className="gallery-dots">
+                {currentProject.images.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`gallery-dot ${index === currentImageIndex ? 'active' : ''}`}
+                    onClick={() => setCurrentImageIndex(index)}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 }

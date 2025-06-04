@@ -110,10 +110,18 @@ const translations = {  it: {
     vortexCorpDesc: "Prototipo di videogioco 3D analog horror, sviluppato in Unity HDRP e C#. Il giocatore seleziona una videocassetta che registra gli ultimi momenti di vita di alcuni scienziati della VortexCorp, in epoche diverse, alla ricerca di antichi frammenti di una spada.",
     
     // ML Projects descriptions
-    laptopPricePredictionDesc: "Sfruttando il Random Forest e la Regressione Lineare, prevede il prezzo di qualsiasi Laptop inserito, basandosi su un database.",
+    laptopPricePredictionDesc: "Script in Python che, fornito un dataset di Kaggle, permette di inserire un Laptop con le sue specifiche tecniche e di restituire la previsione di un prezzo (in EUR) e il margine di errore effettuato.",
     
     browseProjects: "Sfoglia i progetti",
     allProjectsTitle: "Archivio Progetti",
+    
+    // Gallery
+    imageGallery: "Galleria Immagini",
+    viewScreenshots: "Visualizza Screenshot",
+    noImagesAvailable: "Nessuna immagine disponibile",
+    closeGallery: "Chiudi Galleria",
+    previousImage: "Immagine Precedente", 
+    nextImage: "Immagine Successiva",
       demo: "Demo",
     github: "GitHub",
     
@@ -231,10 +239,18 @@ const translations = {  it: {
     vortexCorpDesc: "3D analog horror video game prototype, developed in Unity HDRP and C#. The player selects a videotape that records the last moments of life of some VortexCorp scientists, in different eras, searching for ancient fragments of a sword.",
     
     // ML Projects descriptions
-    laptopPricePredictionDesc: "Using Random Forest and Linear Regression, it predicts the price of any laptop entered, based on a database.",
+    laptopPricePredictionDesc: "Python script that, given a Kaggle dataset, allows you to input a laptop with its technical specifications and returns a price prediction (in EUR) and the margin of error achieved.",
     
     browseProjects: "Browse projects",
     allProjectsTitle: "Project Archive",
+    
+    // Gallery
+    imageGallery: "Image Gallery",
+    viewScreenshots: "View Screenshots",
+    noImagesAvailable: "No images available",
+    closeGallery: "Close Gallery",
+    previousImage: "Previous Image",
+    nextImage: "Next Image",
       demo: "Demo",
     github: "GitHub",
     
