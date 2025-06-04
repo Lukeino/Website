@@ -1,7 +1,9 @@
 /**
  * LanguageContext
- * Author: Luca Iantosco
- * Description: React context for multi-language support with Italian and English translations
+ * Author: Luca Ianto    aboutDescription1: "Sono Luca Iantosco, uno studente di Informatica e Tecnologie per la Produzione del Software presso l'Università degli Studi di Bari. La mia specializzazione è nello sviluppo di videogiochi, software e applicazioni web.",
+    aboutDescription2: "Ho esperienza nello sviluppo full-stack utilizzando tecnologie moderne, programmazione orientata agli oggetti e nella creazione di sistemi interattivi come giochi, strumenti e interfacce utente. Sono anche fortemente interessato verso il mondo del machine learning e intelligenza artificiale.",
+    aboutDescription3: "Pubblico i miei lavori nel campo del game development sotto l'alias \"Madspace Interactive\".",
+    aboutDescription4: "Credo fermamente che il software migliore nasca dall'equilibrio tra logica e immaginazione: ogni riga di codice è per me un'opportunità per risolvere un problema, raccontare una storia o costruire qualcosa che abbia un impatto reale sulle persone.", * Description: React context for multi-language support with Italian and English translations
  * Date: June 2, 2025
  */
 
@@ -42,9 +44,10 @@ const translations = {  it: {
     myProjects: "Esplora i Progetti",
     contactMe: "Inizia Collaborazione",    // About Section
     aboutTitle: "Chi Sono",
-    aboutDescription1: "Sono Luca Iantosco, uno studente di Informatica e Tecnologie per la Produzione del Software presso l'Università degli Studi di Bari. La mia specializzazione è nello sviluppo di videogiochi, software, applicazioni web e machine learning/intelligenza artificiale.",
-    aboutDescription2: "Ho esperienza nello sviluppo full-stack utilizzando tecnologie moderne, programmazione orientata agli oggetti e nella creazione di sistemi interattivi come giochi, strumenti e interfacce utente. Pubblico i miei lavori nel campo del game development sotto l’alias “Madspace Interactive”",
-    aboutDescription3: "Credo fermamente che il software migliore nasca dall’equilibrio tra logica e immaginazione: ogni riga di codice è per me un’opportunità per risolvere un problema, raccontare una storia o costruire qualcosa che abbia un impatto reale sulle persone.",
+    aboutDescription1: "Sono Luca Iantosco, uno studente di Informatica e Tecnologie per la Produzione del Software presso l'Università degli Studi di Bari. La mia specializzazione è nello sviluppo di videogiochi, software e applicazioni web.",
+    aboutDescription2: "Ho esperienza nello sviluppo full-stack utilizzando tecnologie moderne, programmazione orientata agli oggetti e nella creazione di sistemi interattivi come giochi, strumenti e interfacce utente. Sono anche fortemente interessato verso il mondo del machine learning e intelligenza artificiale.",
+    aboutDescription3: "Pubblico i miei lavori nel campo del game development sotto l’alias “Madspace Interactive”",
+    aboutDescription4: "Credo fermamente che il software migliore nasca dall’equilibrio tra logica e immaginazione: ogni riga di codice è per me un’opportunità per risolvere un problema, raccontare una storia o costruire qualcosa che abbia un impatto reale sulle persone.",
     
     // Education Section
     educationTitle: "Educazione",
@@ -162,9 +165,11 @@ const translations = {  it: {
     myProjects: "Explore Projects",
     contactMe: "Start Collaboration",
       // About Section
-    aboutTitle: "About Me",    aboutDescription1: "I'm Luca Iantosco, a Computer Science and Software Production Technologies student at the University of Bari. I specialize in video game development, software, web applications and machine learning/artificial intelligence.",
-    aboutDescription2: "I have experience in full-stack development using modern technologies, object-oriented programming and in creating interactive systems such as games, tools and user interfaces. I publish my work in game development under the alias 'Madspace Interactive'.",
-    aboutDescription3: "I firmly believe that the best software comes from the balance between logic and imagination: every line of code is for me an opportunity to solve a problem, tell a story or build something that has a real impact on people.",
+    aboutTitle: "About Me",
+    aboutDescription1: "I'm Luca Iantosco, a Computer Science and Software Production Technologies student at the University of Bari. I specialize in video game development, software, web applications and machine learning/artificial intelligence.",
+    aboutDescription2: "I have experience in full-stack development using modern technologies, object-oriented programming and in creating interactive systems such as games, tools and user interfaces. I'm also strongly interested in the world of machine learning and artificial intelligence.",
+    aboutDescription3: "I publish my work in game development under the alias \"Madspace Interactive\".",
+    aboutDescription4: "I firmly believe that the best software comes from the balance between logic and imagination: every line of code is for me an opportunity to solve a problem, tell a story or build something that has a real impact on people.",
     
     // Education Section
     educationTitle: "Education",
