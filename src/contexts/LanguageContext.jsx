@@ -45,7 +45,7 @@ const translations = {  it: {
     contactMe: "Inizia Collaborazione",    // About Section
     aboutTitle: "Chi Sono",
     aboutDescription1: "Sono Luca Iantosco, uno studente di Informatica e Tecnologie per la Produzione del Software presso l'Università degli Studi di Bari. La mia specializzazione è nello sviluppo di videogiochi, software e applicazioni web.",
-    aboutDescription2: "Ho esperienza nello sviluppo full-stack utilizzando tecnologie moderne, programmazione orientata agli oggetti e nella creazione di sistemi interattivi come giochi, strumenti e interfacce utente. Sono anche fortemente interessato verso il mondo del machine learning e intelligenza artificiale.",
+    aboutDescription2: "Ho esperienza nello sviluppo full-stack utilizzando tecnologie moderne, programmazione orientata agli oggetti e nella creazione di sistemi interattivi come giochi, strumenti e interfacce utente. Sono anche fortemente interessato al mondo del machine learning e dell'intelligenza artificiale.",
     aboutDescription3: "Pubblico i miei lavori nel campo del game development sotto l’alias “Madspace Interactive”",
     aboutDescription4: "Credo fermamente che il software migliore nasca dall’equilibrio tra logica e immaginazione: ogni riga di codice è per me un’opportunità per risolvere un problema, raccontare una storia o costruire qualcosa che abbia un impatto reale sulle persone.",
     
