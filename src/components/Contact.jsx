@@ -112,7 +112,7 @@ function Contact() {
             </div>
           </div>
           <form 
-            className="contact-form neon-pulse" 
+            className="contact-form" 
             onSubmit={handleSubmit}
             name="contact" 
             method="POST" 
@@ -187,7 +187,7 @@ function Contact() {
 
             <button 
               type="submit" 
-              className="btn btn-primary neon-pulse"
+              className="btn btn-primary"
               disabled={formStatus === 'submitting'}
               style={{
                 opacity: formStatus === 'submitting' ? 0.7 : 1,

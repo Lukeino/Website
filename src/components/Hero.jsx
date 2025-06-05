@@ -28,7 +28,7 @@ function Hero() {
             />
           </h2>
           <div className="hero-buttons">
-            <a href="#projects" className="btn btn-primary neon-pulse">{t('myProjects')}</a>
+            <a href="#projects" className="btn btn-primary">{t('myProjects')}</a>
             <a href="#contact" className="btn btn-secondary">{t('contactMe')}</a>
           </div>        </div>
       </div>
