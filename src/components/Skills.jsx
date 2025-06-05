@@ -21,6 +21,7 @@ import {
   SiCplusplus,
   SiConstruct3,
   SiMysql,
+  SiSqlite,
   SiStrapi,
   SiBlender,
   SiGithub,
@@ -52,41 +53,6 @@ function Skills() {
         <h2 className="pixel-text">{t('skillsTitle')}</h2>
         
         <div className="skills">
-          {/* Game Engine */}
-          <div className="skill-category">
-            <h4 className="category-title">{t('gameEngineCategory')}</h4>
-            <div className="skills-grid" ref={gameEngineGridRef}>
-              <div className="skill-item pixel-float luca-stagger-item">
-                <SiUnity className="skill-icon" />
-                <span>Unity</span>
-              </div>
-              <div className="skill-item pixel-float luca-stagger-item">
-                <SiConstruct3 className="skill-icon" />
-                <span>Construct 3</span>
-              </div>
-              <div className="skill-item pixel-float luca-stagger-item">
-                <SiGodotengine className="skill-icon" />
-                <span>Godot</span>
-              </div>
-              <div className="skill-item pixel-float luca-stagger-item">
-                <GiBroadsword className="skill-icon" />
-                <span>RPG Maker MV</span>
-              </div>
-              <div className="skill-item pixel-float luca-stagger-item">
-                <SiBlender className="skill-icon" />
-                <span>Blender</span>
-              </div>
-              <div className="skill-item pixel-float luca-stagger-item">
-                <SiAudacity className="skill-icon" />
-                <span>Audacity</span>
-              </div>
-              <div className="skill-item pixel-float luca-stagger-item">
-                <SiAdobephotoshop className="skill-icon" />
-                <span>Photoshop</span>
-              </div>
-            </div>
-          </div>
-
           {/* Programming Languages */}
           <div className="skill-category">
             <h4 className="category-title">{t('programmingLanguagesCategory')}</h4>
@@ -169,13 +135,52 @@ function Skills() {
             </div>
           </div>
 
-          {/* Database */}
+          {/* DBMS */}
           <div className="skill-category">
             <h4 className="category-title">{t('databaseCategory')}</h4>
             <div className="skills-grid" ref={databaseGridRef}>
               <div className="skill-item pixel-float luca-stagger-item">
                 <SiMysql className="skill-icon" />
                 <span>MySQL</span>
+              </div>
+              <div className="skill-item pixel-float luca-stagger-item">
+                <SiSqlite className="skill-icon" />
+                <span>SQLite</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Game Engine & Tools */}
+          <div className="skill-category">
+            <h4 className="category-title">{t('gameEngineCategory')}</h4>
+            <div className="skills-grid" ref={gameEngineGridRef}>
+              <div className="skill-item pixel-float luca-stagger-item">
+                <SiUnity className="skill-icon" />
+                <span>Unity</span>
+              </div>
+              <div className="skill-item pixel-float luca-stagger-item">
+                <SiConstruct3 className="skill-icon" />
+                <span>Construct 3</span>
+              </div>
+              <div className="skill-item pixel-float luca-stagger-item">
+                <SiGodotengine className="skill-icon" />
+                <span>Godot</span>
+              </div>
+              <div className="skill-item pixel-float luca-stagger-item">
+                <GiBroadsword className="skill-icon" />
+                <span>RPG Maker MV</span>
+              </div>
+              <div className="skill-item pixel-float luca-stagger-item">
+                <SiBlender className="skill-icon" />
+                <span>Blender</span>
+              </div>
+              <div className="skill-item pixel-float luca-stagger-item">
+                <SiAudacity className="skill-icon" />
+                <span>Audacity</span>
+              </div>
+              <div className="skill-item pixel-float luca-stagger-item">
+                <SiAdobephotoshop className="skill-icon" />
+                <span>Photoshop</span>
               </div>
             </div>
           </div>

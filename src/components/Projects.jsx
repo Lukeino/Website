@@ -12,32 +12,53 @@ import { Link } from 'react-router-dom'
 import hollowDungeonsImage from '../assets/TheHollowDungeons.jpg'
 import careerConnectImage from '../assets/CareerConnect.png'
 import portfolioImage from '../assets/Portfolio.png'
-import oldPortfolioImage from '../assets/OldPortfolio.png'
+import healthboardImage from '../assets/Healthboard.png'
 import sklearnImage from '../assets/Sklearn.png'
 import prototypesGif from '../assets/Prototipi.gif'
 
 function Projects() {
   const { t } = useLanguage()
   const sectionRef = useScrollAnimation();
+  const featuredGridRef = useStaggeredAnimation(150);
   const gameDevGridRef = useStaggeredAnimation(150);
   const webAppsGridRef = useStaggeredAnimation(150);
   const researchGridRef = useStaggeredAnimation(150);
   
   // Project categories with data
   const projectCategories = {
-    gameDev: [
-      {
+    featured: [      {
+        id: 1,        title: t('hollowDungeonsTitle'),
+        description: t('hollowDungeonsDesc'),
+        technologies: ["Unity", "C#"],
+        link: "#",
+        github: null,
+        category: "game",
+        image: hollowDungeonsImage,
+        hideDemoButton: true,
+        hideGitHubButton: true
+      },{
+        id: 6,
+        title: t('careerConnectTitle'),
+        description: t('careerConnectDesc'),
+        technologies: ["React", "Vite", "CSS", "Strapi"],
+        link: "#",
+        github: "https://github.com/Lukeino/CareerConnectWebsite",
+        category: "web",
+        image: careerConnectImage,
+        hideDemoButton: true
+      }
+    ],
+
+    gameDev: [      {
         id: 3,
         title: t('hollowDungeonsTitle'),
         description: t('hollowDungeonsDesc'),
-        technologies: ["Unity", "C#"],        
-        link: "#",
-        github: "#",
+        technologies: ["Unity", "C#"],        link: "#",
+        github: null,
         image: hollowDungeonsImage,
         hideDemoButton: true,
-        hideGitHubButton: true,
-        showInDevelopment: true
-      },      {
+        hideGitHubButton: true
+      },{
         id: 4,
         title: t('prototypeGamesTitle'),
         description: t('prototypeGamesDesc'),
@@ -57,17 +78,16 @@ function Projects() {
         github: "https://github.com/Lukeino/Website",
         image: portfolioImage,
         hideDemoButton: true
-      },
-      {
-        id: 2,
-        title: t('oldPortfolioTitle'),
-        description: t('oldPortfolioDesc'),
-        technologies: ["HTML", "CSS", "SCSS"],
-        link: "#",
-        github: "https://github.com/Lukeino/PortfolioWebsite-Legacy-",
-        image: oldPortfolioImage,
-        hideDemoButton: true
       },      {
+        id: 2,
+        title: t('healthboardTitle'),
+        description: t('healthboardDesc'),
+        technologies: ["React", "Vite", "CSS", "SQLite"],
+        link: "#",
+        github: "https://github.com/Lukeino/Healthboard-website",
+        image: healthboardImage,
+        hideDemoButton: true
+      },{
         id: 5,
         title: t('careerConnectTitle'),
         description: t('careerConnectDesc'),
@@ -82,7 +102,7 @@ function Projects() {
         id: 3,
         title: t('sklearnProjectsTitle'),
         description: t('sklearnProjectsDesc'),
-        technologies: ["Scikit-Learn", "Python", "Q-Learning"],        link: "#",
+        technologies: ["Scikit-Learn", "Python"],        link: "#",
         github: "https://github.com/Lukeino/ML-Sklearn-Projects",
         image: sklearnImage,
         disclaimer: t('sklearnProjectsDisclaimer'),
@@ -96,11 +116,12 @@ function Projects() {
       //   description: "Sistema di ottimizzazione automatica per reti neurali usando algoritmi genetici",
       //   technologies: ["Python", "PyTorch", "Scikit-learn"],
       //   link: "#",
-      //   github: "#"
-      // }
-    ]  }
+      //   github: "#"      // }
+    ]
+  }
+
   const renderProjectCard = (project) => (
-    <div key={project.id} className="project-card pixel-float neon-pulse luca-stagger-item">
+    <div key={project.id} className="project-card luca-stagger-item">
       <div className="project-image">
         {project.image ? (
           <img 
@@ -113,7 +134,7 @@ function Projects() {
             <span>Project Screenshot</span>
           </div>
         )}
-      </div><div className="project-content">
+      </div>      <div className="project-content">
         <h3>{project.title}</h3>
         <p>{project.description}</p>
         {project.title === t('hollowDungeonsTitle') && (
@@ -126,9 +147,6 @@ function Projects() {
           {project.technologies.map(tech => (
             <span key={tech} className="tech-tag">{tech}</span>
           ))}
-          {project.showInDevelopment && (
-            <span className="development-tag">{t('inDevelopment')}</span>
-          )}
         </div>        <div className="project-links">
           {!project.hideDemoButton && (
             <a 
@@ -153,30 +171,38 @@ function Projects() {
               className="btn btn-small btn-secondary"
             >
               {t('browseProjects')}
-            </Link>
-          )}
+            </Link>          )}
         </div>
       </div>
-    </div>  )
+    </div>)
     
   return (
-    <section id="projects" className="projects-section" ref={sectionRef}>
-      <div className="container">
+    <section id="projects" className="projects-section" ref={sectionRef}>      <div className="container">
         <h2 className="pixel-text">{t('projectsTitle')}</h2>
         
-        {/* Game Development */}
+        {/* Featured Projects - Hidden for now */}
+        {/* 
         <div className="project-category">
-          <h3 className="category-title">{t('gameDevProjects')}</h3>
-          <div className="projects-grid" ref={gameDevGridRef}>
-            {projectCategories.gameDev.map(renderProjectCard)}
+          <h3 className="category-title">{t('featuredProjects')}</h3>
+          <div className="projects-grid" ref={featuredGridRef}>
+            {projectCategories.featured.map(renderProjectCard)}
           </div>
         </div>
+        */}
 
         {/* Web Applications */}
         <div className="project-category">
           <h3 className="category-title">{t('webAppProjects')}</h3>
           <div className="projects-grid" ref={webAppsGridRef}>
             {projectCategories.webApps.map(renderProjectCard)}
+          </div>
+        </div>
+
+        {/* Game Development */}
+        <div className="project-category">
+          <h3 className="category-title">{t('gameDevProjects')}</h3>
+          <div className="projects-grid" ref={gameDevGridRef}>
+            {projectCategories.gameDev.map(renderProjectCard)}
           </div>
         </div>
 

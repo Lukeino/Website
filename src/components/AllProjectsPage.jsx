@@ -36,6 +36,7 @@ function AllProjectsPage() {
   const location = useLocation();
   const sectionRef = useScrollAnimation();
   const softwareTableRef = useStaggeredAnimation(150);
+  const webdevTableRef = useStaggeredAnimation(150);
   const gameTableRef = useStaggeredAnimation(150);
   const mlTableRef = useStaggeredAnimation(150);
 
@@ -122,6 +123,17 @@ function AllProjectsPage() {
         playLink: null,
         downloadLink: 'https://mega.nz/file/HK5lkBqL#QNWWsfOOJcmGZ55nSC3U-4en_WDpROoscFrDCaQGJHc',
         images: projectGalleries['StatsConverter'] || []
+      }
+    ],
+    webdev: [
+      {
+        id: 'web1',
+        title: t('oldPortfolioTitle'),
+        description: t('oldPortfolioDesc'),
+        githubLink: 'https://github.com/Lukeino/PortfolioWebsite-Legacy-',
+        playLink: null,
+        downloadLink: null,
+        images: []
       }
     ],
     prototypes: [
@@ -262,6 +274,25 @@ function AllProjectsPage() {
                 </thead>
                 <tbody>
                   {tableProjects.software.map(renderTableProjectRow)}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Web Development Table */}
+          <div className="project-category" id="web-development">
+            <h3 className="category-title centered-title">{t('webDevProjects')}</h3>
+            <div className="table-responsive" ref={webdevTableRef}>
+              <table className="project-table">
+                <thead>
+                  <tr>
+                    <th className="centered-header">{t('projectTitle')}</th>
+                    <th className="centered-header">{t('projectDescription')}</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tableProjects.webdev.map(renderTableProjectRow)}
                 </tbody>
               </table>
             </div>

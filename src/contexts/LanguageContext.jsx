@@ -56,7 +56,7 @@ const translations = {  it: {
     gameEngineCategory: "Game Engine & Strumenti",
     programmingLanguagesCategory: "Linguaggi di Programmazione", 
     webDevelopmentCategory: "Sviluppo Software & Web",
-    databaseCategory: "Database",
+    databaseCategory: "DBMS",
     securityCategory: "Sicurezza e Analisi",
     aiMlCategory: "AI/ML",    // Projects Section
     projectsTitle: "I Miei Progetti",
@@ -67,6 +67,7 @@ const translations = {  it: {
     gamePrototypes: "Prototipi di Gioco",
     mlProjects: "Progetti ML",
     softwareDevProjects: "Software Development",
+    webDevProjects: "Sviluppo Web",
     
     // StatsConverter Project
     statsConverterTitle: "StatsConverter",
@@ -82,8 +83,12 @@ const translations = {  it: {
     portfolioSiteDesc: "Questo sito, realizzato per mostrare le mie capacità e i miei progetti!",
     
     // Old Portfolio Site
-    oldPortfolioTitle: "Portfolio (vecchia versione)",
-    oldPortfolioDesc: "Sviluppato in HTML, CSS e SCSS, rappresenta una vecchia versione del mio sito più statica.",
+    healthboardTitle: "Healthboard",
+    healthboardDesc: "Applicazione web sviluppata in React, Vite, CSS e SQLite che permette l'accesso al personale medico per gestire il loro Fascicolo Sanitario Elettronico.",
+    
+    // Old Portfolio Project
+    oldPortfolioTitle: "Portfolio (Vecchia Versione)",
+    oldPortfolioDesc: "Una vecchia versione più statica del mio sito web portfolio. Sviluppata con HTML, CSS e SCSS.",
       projectPortfolio: "Portfolio GameDev",
     projectPortfolioDesc: "Il mio sito portfolio personale per showcasare i miei progetti di game development",
       // Prototype Games
@@ -185,7 +190,7 @@ const translations = {  it: {
     gameEngineCategory: "Game Engines & Tools",
     programmingLanguagesCategory: "Programming Languages",
     webDevelopmentCategory: "Web & Software Development", 
-    databaseCategory: "Database",
+    databaseCategory: "DBMS",
     securityCategory: "Security & Analysis",
     aiMlCategory: "AI/ML",    // Projects Section
     projectsTitle: "My Projects",
@@ -196,6 +201,7 @@ const translations = {  it: {
     gamePrototypes: "Game Prototypes",
     mlProjects: "ML Projects",
     softwareDevProjects: "Software Development",
+    webDevProjects: "Web Development",
     
     // StatsConverter Project
     statsConverterTitle: "StatsConverter",
@@ -210,9 +216,13 @@ const translations = {  it: {
     portfolioSiteTitle: "Portfolio",
     portfolioSiteDesc: "This website, created to showcase my skills and projects!",
     
-    // Old Portfolio Site
-    oldPortfolioTitle: "Portfolio (old version)",
-    oldPortfolioDesc: "Developed in HTML, CSS and SCSS, it represents an older, more static version of my website.",
+    // Healthboard Site
+    healthboardTitle: "Healthboard",
+    healthboardDesc: "Web application developed in React, Vite, CSS and SQLite that allows medical staff to access and manage their Electronic Health Record.",
+    
+    // Old Portfolio Project
+    oldPortfolioTitle: "Portfolio (Old Version)",
+    oldPortfolioDesc: "An older, more static version of my portfolio website. Developed with HTML, CSS and SCSS.",
       projectPortfolio: "GameDev Portfolio",
     projectPortfolioDesc: "My personal portfolio website to showcase my game development projects",
       // Prototype Games
