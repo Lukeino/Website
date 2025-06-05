@@ -8,8 +8,6 @@ Benvenuto nel repository del mio sito web portfolio personale.
 
 Questo progetto contiene il codice sorgente del mio portfolio online, dove mostro i miei progetti, le mie competenze e le mie esperienze nel campo dello sviluppo software e dello sviluppo videogiochi.
 
-Il sito è costruito con [indica il framework/libreria che usi, es. React, Vue, ecc.] e utilizza [eventuali tecnologie particolari, es. Vite, Tailwind, ecc.].
-
 ---
 
 ## Contenuti
