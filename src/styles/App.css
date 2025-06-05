@@ -1773,7 +1773,7 @@ h2::after {
 
 /* Hamburger Menu Styles */
 .menu-toggle {
-  display: none;
+  display: none !important;
   background: none;
   border: none;
   cursor: pointer;
@@ -1866,14 +1866,14 @@ h2::after {
 }
 
 @media (max-width: 768px) {
-  /* Show hamburger menu */
+  /* Show hamburger menu - Force display */
   .menu-toggle {
-    display: block;
+    display: block !important;
   }
   
   /* Hide desktop navigation */
   .nav {
-    display: none;
+    display: none !important;
     position: fixed;
     top: 0;
     left: 0;
@@ -1887,7 +1887,7 @@ h2::after {
   }
   
   .nav-open {
-    display: block;
+    display: block !important;
   }
   
   .nav ul {
@@ -1907,7 +1907,7 @@ h2::after {
   
   /* Hide desktop actions */
   .desktop-only {
-    display: none;
+    display: none !important;
   }
   
   /* Hero optimization for mobile */
@@ -1938,18 +1938,34 @@ h2::after {
     text-align: center;
   }
   
-  /* Fix flickering by reducing background effects */
-  .hero::before {
-    opacity: 0.5; /* Reduced from default */
+  /* Reduce all animations and effects to prevent flickering */
+  .hero::before,
+  body::before {
+    opacity: 0.1 !important;
+    animation: none !important;
   }
   
-  .scanlines::after {
-    animation: none; /* Disable scanlines on mobile */
+  .scanlines::after,
+  .scanlines::before {
+    animation: none !important;
+    display: none !important;
   }
   
-  /* Optimize background particles for mobile */
-  .pixel-background {
-    opacity: 0.3; /* Reduced opacity */
+  /* Disable all background animations */
+  .pixel-background,
+  .pixel-bg {
+    opacity: 0.1 !important;
+    animation: none !important;
+  }
+  
+  /* Disable CRT effects */
+  .scanlines {
+    position: relative;
+  }
+  
+  .scanlines::after,
+  .scanlines::before {
+    content: none !important;
   }
   
   /* About section mobile */
