@@ -110,7 +110,6 @@ const translations = {  it: {
     
     // Game Prototypes descriptions
     ghostTowerDesc: "Videogioco 2D sviluppato in Construct 3. Schiva tutti i nemici utilizzando il mouse, cercando di sopravvivere il più a lungo possibile.",
-    arcadeFantasyDesc: "Prototipo di videogioco co-op 3D sviluppato in Unity e C#. 4 giocatori iniziano la partita nell'hub sfidandosi a diversi giochi arcade per guadagnare punti, nella seconda fase bisogna sopravvivere l'arrivo di mostri giganti.",
     backToEarthDesc: "Prototipo di videogioco 3D horror, sviluppato in Unity e C#. Il giocatore deve scoprire i misteri che aleggiano attorno alla VortexCorp ed i suoi whistleblower scomparsi.",
     vortexCorpDesc: "Prototipo di videogioco 3D analog horror, sviluppato in Unity HDRP e C#. Il giocatore seleziona una videocassetta che registra gli ultimi momenti di vita di alcuni scienziati della VortexCorp, in epoche diverse, alla ricerca di antichi frammenti di una spada.",
     
@@ -244,7 +243,6 @@ const translations = {  it: {
     
     // Game Prototypes descriptions
     ghostTowerDesc: "2D video game developed in Construct 3. Dodge all enemies using the mouse, trying to survive as long as possible.",
-    arcadeFantasyDesc: "3D co-op video game prototype developed in Unity and C#. 4 players start the match in the hub challenging each other to various arcade games to earn points, in the second phase they must survive the arrival of giant monsters.",
     backToEarthDesc: "3D horror video game prototype, developed in Unity and C#. The player must discover the mysteries surrounding VortexCorp and its missing whistleblowers.",
     vortexCorpDesc: "3D analog horror video game prototype, developed in Unity HDRP and C#. The player selects a videotape that records the last moments of life of some VortexCorp scientists, in different eras, searching for ancient fragments of a sword.",
     

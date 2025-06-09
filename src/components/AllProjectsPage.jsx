@@ -23,7 +23,6 @@ import hollowDungeonsPng from '../assets/TheHollowDungeons.jpg';
 // All projects disabled for now
 const projectGalleries = {
   'Ghost Tower': [], // Disabled
-  'Arcade Fantasy': [], // Disabled
   'Medievalia': [], // Disabled
   'StatsConverter': [], // Disabled
   'Predizione Prezzo Laptop': [], // Disabled
@@ -145,15 +144,6 @@ function AllProjectsPage() {
         playLink: null,
         downloadLink: null,
         images: projectGalleries['Ghost Tower'] || []
-      },
-      {
-        id: 'proto2', 
-        title: 'Arcade Fantasy',
-        description: t('arcadeFantasyDesc'),
-        githubLink: null,
-        playLink: null,
-        downloadLink: null,
-        images: projectGalleries['Arcade Fantasy'] || []
       },
       {
         id: 'proto3',

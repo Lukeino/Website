@@ -8,12 +8,14 @@
 import React from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 import TypewriterEffect from './TypewriterEffect'
+import HeroPixels from './HeroPixels'
 
 function Hero() {
   const { t } = useLanguage()
 
   return (
     <section id="home" className="hero scanlines">
+      <HeroPixels />
       <div className="container">
         <div className="hero-content">
           <h1 className="pixel-text">

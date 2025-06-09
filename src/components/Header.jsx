@@ -19,6 +19,9 @@ function Header() {
   const navigate = useNavigate();
   
   useEffect(() => {
+    // Forza la home a essere visualizzata all'inizio e imposta un flag per evitare il salto iniziale
+    let initialLoad = true;
+    
     // Evidenzia il pulsante "Archivio Progetti" quando siamo sulla pagina AllProjectsPage
     if (location.pathname === '/all-projects') {
       setActiveSection('all-projects');
@@ -27,16 +30,20 @@ function Header() {
     
     // Observer per l'evidenziazione delle sezioni solo sulla home page
     if (location.pathname === '/') {
+      // Resetta lo scroll e imposta home come sezione attiva all'inizio
+      window.scrollTo(0, 0);
+      setActiveSection('home');
+      
       const sections = ['home', 'about', 'skills', 'projects', 'contact'];
       const observerOptions = {
         root: null,
-        rootMargin: '-50% 0px -50% 0px',
-        threshold: 0
+        rootMargin: '0px 0px -10% 0px', // Ridotto significativamente per evitare salti
+        threshold: 0.2 // Aumentato per richiedere che più della sezione sia visibile
       };
 
       const observerCallback = (entries) => {
-        // Ignora aggiornamenti durante la navigazione
-        if (isNavigating) return;
+        // Ignora aggiornamenti durante la navigazione o al caricamento iniziale
+        if (isNavigating || initialLoad) return;
         
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -47,12 +54,17 @@ function Header() {
 
       const observer = new IntersectionObserver(observerCallback, observerOptions);
       
-      sections.forEach((sectionId) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          observer.observe(element);
-        }
-      });
+      // Imposta un breve ritardo per permettere alla pagina di stabilizzarsi
+      setTimeout(() => {
+        initialLoad = false; // Dopo questo momento, l'observer può iniziare a rilevare cambiamenti
+        
+        sections.forEach((sectionId) => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            observer.observe(element);
+          }
+        });
+      }, 500);
 
       return () => {
         sections.forEach((sectionId) => {
