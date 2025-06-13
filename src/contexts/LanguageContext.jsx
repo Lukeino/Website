@@ -48,7 +48,7 @@ const translations = {
     aboutTitle: "Chi Sono",
     aboutDescription1: "Sono Luca Iantosco, uno studente di Informatica e Tecnologie per la Produzione del Software presso l'Università degli Studi di Bari Aldo Moro.",
     aboutDescription2: "Attualmente possiedo competenze piuttosto versatili, che spaziano dallo sviluppo di videogiochi al web development, dal machine learning alla cyber security.",
-    aboutDescription3: "La maggior parte delle mie soft skills derivano da progetti come solo dev e dal mio percorso di studi.",
+    aboutDescription3: "La maggior parte di queste ultime derivano da progetti come solo dev e dal mio percorso di studi.",
     aboutDescription4: "Nell'ambito del Game Development, pubblico sotto l'alias \"Madspace Interactive\".",
     aboutDescription5: "Credo fermamente che il software migliore nasca dall'equilibrio tra logica ed immaginazione: ogni riga di codice è per me un'opportunità per risolvere un problema, raccontare una storia o costruire qualcosa che abbia un impatto reale sulle persone.",
     
@@ -204,7 +204,7 @@ const translations = {
     aboutTitle: "About Me",
     aboutDescription1: "I'm Luca Iantosco, a Computer Science and Software Production Technologies student at the University of Bari Aldo Moro.",
     aboutDescription2: "I currently possess quite versatile skills, ranging from video game development to web development, from machine learning to cyber security.",
-    aboutDescription3: "Most of my soft skills derive from solo dev projects and my academic journey.",
+    aboutDescription3: "Most of my skills derive from solo dev projects and my academic journey.",
     aboutDescription4: "In the Game Development field, I publish under the alias \"Madspace Interactive\".",
     aboutDescription5: "I firmly believe that the best software comes from the balance between logic and imagination: every line of code is for me an opportunity to solve a problem, tell a story or build something that has a real impact on people.",
     
