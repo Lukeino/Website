@@ -24,26 +24,14 @@ function ScrollToTop() {
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   
   useEffect(() => {
-    // Per la prima caricamento, assicuriamoci di essere in cima alla pagina
-    if (isFirstLoad) {
+    // Solo per i cambi di route, non per il primo caricamento della pagina
+    if (!isFirstLoad && pathname !== '/') {
+      // Solo scroll to top quando cambiamo veramente pagina (non quando andiamo alla home)
+      window.scrollTo(0, 0);
+    } else if (isFirstLoad) {
+      // Per il primo caricamento, inizia dalla cima ma non bloccare lo scroll
       window.scrollTo(0, 0);
       setIsFirstLoad(false);
-      
-      // Previeni qualsiasi scroll automatico per i primi 500ms
-      const preventDefault = (e) => e.preventDefault();
-      window.addEventListener('scroll', preventDefault, { passive: false });
-      
-      const timeout = setTimeout(() => {
-        window.removeEventListener('scroll', preventDefault);
-      }, 500);
-      
-      return () => {
-        clearTimeout(timeout);
-        window.removeEventListener('scroll', preventDefault);
-      };
-    } else {
-      // Per i cambi di route successivi, scroll in cima
-      window.scrollTo(0, 0);
     }
   }, [pathname, isFirstLoad]);
   

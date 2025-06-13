@@ -5,7 +5,7 @@
  * Date: June 2, 2025
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -14,14 +14,16 @@ function Header() {
   const [activeSection, setActiveSection] = useState('home');
   const [isNavigating, setIsNavigating] = useState(false);
   const [clickedSection, setClickedSection] = useState(null);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
   
+  // Riferimenti per controllare l'observer
+  const observerRef = useRef(null);
+  const scrollHandlerRef = useRef(null);
+  
   useEffect(() => {
-    // Forza la home a essere visualizzata all'inizio e imposta un flag per evitare il salto iniziale
-    let initialLoad = true;
-    
     // Evidenzia il pulsante "Archivio Progetti" quando siamo sulla pagina AllProjectsPage
     if (location.pathname === '/all-projects') {
       setActiveSection('all-projects');
@@ -30,83 +32,152 @@ function Header() {
     
     // Observer per l'evidenziazione delle sezioni solo sulla home page
     if (location.pathname === '/') {
-      // Resetta lo scroll e imposta home come sezione attiva all'inizio
-      window.scrollTo(0, 0);
-      setActiveSection('home');
-      
       const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -10% 0px', // Ridotto significativamente per evitare salti
-        threshold: 0.2 // Aumentato per richiedere che più della sezione sia visibile
-      };
-
-      const observerCallback = (entries) => {
-        // Ignora aggiornamenti durante la navigazione o al caricamento iniziale
-        if (isNavigating || initialLoad) return;
-        
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      };
-
-      const observer = new IntersectionObserver(observerCallback, observerOptions);
       
-      // Imposta un breve ritardo per permettere alla pagina di stabilizzarsi
-      setTimeout(() => {
-        initialLoad = false; // Dopo questo momento, l'observer può iniziare a rilevare cambiamenti
+      // Funzione per creare e avviare l'observer
+      const startObserver = () => {
+        if (observerRef.current) {
+          observerRef.current.disconnect();
+        }
         
-        sections.forEach((sectionId) => {
-          const element = document.getElementById(sectionId);
-          if (element) {
-            observer.observe(element);
+        const observerOptions = {
+          root: null,
+          rootMargin: '-10% 0px -10% 0px',
+          threshold: [0, 0.1, 0.25, 0.5, 0.75]
+        };
+
+        const observerCallback = (entries) => {
+          // Se stiamo facendo auto-scroll, non fare nulla
+          if (isAutoScrolling) return;
+          
+          let mostVisibleSection = null;
+          let maxVisibility = 0;
+          
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio > maxVisibility) {
+              maxVisibility = entry.intersectionRatio;
+              mostVisibleSection = entry.target.id;
+            }
+          });
+          
+          if (mostVisibleSection && maxVisibility > 0.1) {
+            setActiveSection(mostVisibleSection);
           }
-        });
-      }, 500);
+        };
+
+        observerRef.current = new IntersectionObserver(observerCallback, observerOptions);
+        
+        // Fallback con scroll listener
+        const handleScroll = () => {
+          if (isAutoScrolling) return;
+          
+          const scrollPosition = window.scrollY + window.innerHeight / 2;
+          let activeId = 'home';
+          
+          sections.forEach(sectionId => {
+            const element = document.getElementById(sectionId);
+            if (element) {
+              const rect = element.getBoundingClientRect();
+              const elementTop = rect.top + window.scrollY;
+              const elementBottom = elementTop + rect.height;
+              
+              if (scrollPosition >= elementTop && scrollPosition <= elementBottom) {
+                activeId = sectionId;
+              }
+            }
+          });
+          
+          setActiveSection(activeId);
+        };
+        
+        scrollHandlerRef.current = handleScroll;
+        
+        // Aspetta che la pagina sia completamente caricata
+        setTimeout(() => {
+          if (!isAutoScrolling) {
+            sections.forEach((sectionId) => {
+              const element = document.getElementById(sectionId);
+              if (element && observerRef.current) {
+                observerRef.current.observe(element);
+              }
+            });
+            
+            window.addEventListener('scroll', scrollHandlerRef.current, { passive: true });
+          }
+        }, 1000);
+      };
+      
+      // Funzione per fermare l'observer
+      const stopObserver = () => {
+        if (observerRef.current) {
+          observerRef.current.disconnect();
+        }
+        if (scrollHandlerRef.current) {
+          window.removeEventListener('scroll', scrollHandlerRef.current);
+        }
+      };
+      
+      // Se non stiamo facendo auto-scroll, avvia l'observer
+      if (!isAutoScrolling) {
+        startObserver();
+      } else {
+        stopObserver();
+      }
 
       return () => {
-        sections.forEach((sectionId) => {
-          const element = document.getElementById(sectionId);
-          if (element) {
-            observer.unobserve(element);
-          }
-        });
+        stopObserver();
       };
     }
-  }, [isNavigating, location.pathname]);
+  }, [isAutoScrolling, location.pathname]);
 
   const handleNavClick = (sectionId) => {
+    // Imposta immediatamente la sezione come attiva
+    setActiveSection(sectionId);
+    
+    // DISCONNETTI FISICAMENTE l'observer e il listener
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+    if (scrollHandlerRef.current) {
+      window.removeEventListener('scroll', scrollHandlerRef.current);
+    }
+    
+    // Imposta i flag
+    setIsNavigating(true);
+    setClickedSection(sectionId);
+    setIsAutoScrolling(true);
+    
     // Torna alla home se siamo su una pagina diversa
     if (location.pathname !== '/') {
       navigate('/');
-      // Delay per permettere il caricamento della pagina
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
+          
+          // Riattiva l'observer dopo un delay
+          setTimeout(() => {
+            setIsNavigating(false);
+            setClickedSection(null);
+            setIsAutoScrolling(false); // Questo ricreerà l'observer tramite useEffect
+          }, 2000);
         }
-        setActiveSection(sectionId);
-      }, 300);
+      }, 200);
       return;
     }
 
-    setIsNavigating(true);
-    setClickedSection(sectionId);
-    setActiveSection(sectionId);
-    
-    // Scroll verso la sezione
+    // Scroll verso la sezione sulla home page
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      
+      // Riattiva l'observer dopo un delay fisso
+      setTimeout(() => {
+        setIsNavigating(false);
+        setClickedSection(null);
+        setIsAutoScrolling(false); // Questo ricreerà l'observer tramite useEffect
+      }, 2000);
     }
-    
-    // Reset stato di navigazione
-    setTimeout(() => {
-      setIsNavigating(false);
-      setClickedSection(null);
-    }, 1000);
   };
 
   const handleMenuToggle = () => {
