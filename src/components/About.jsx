@@ -51,6 +51,9 @@ function About() {
             <p>
               {t('aboutDescription4')}
             </p>
+            <p>
+              {t('aboutDescription5')}
+            </p>
           </div>
         </div>
       </div>

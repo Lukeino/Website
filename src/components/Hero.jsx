@@ -8,20 +8,18 @@
 import React from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 import TypewriterEffect from './TypewriterEffect'
-import HeroPixels from './HeroPixels'
 
 function Hero() {
   const { t } = useLanguage()
 
   return (
-    <section id="home" className="hero scanlines">
-      <HeroPixels />
+    <section id="home" className="hero">
       <div className="container">
         <div className="hero-content">
-          <h1 className="pixel-text">
+          <h1>
             {t('heroTitle')}
           </h1>
-          <h2 className="pixel-text typewriter-subtitle">
+          <h2 className="typewriter-subtitle">
             <TypewriterEffect 
               texts={t('heroSubtitleVariants')}
               speed={100}
@@ -29,10 +27,7 @@ function Hero() {
               delayBetween={2000}
             />
           </h2>
-          <div className="hero-buttons">
-            <a href="#projects" className="btn btn-primary">{t('myProjects')}</a>
-            <a href="#contact" className="btn btn-secondary">{t('contactMe')}</a>
-          </div>        </div>
+        </div>
       </div>
     </section>
   )

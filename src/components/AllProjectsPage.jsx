@@ -127,6 +127,15 @@ function AllProjectsPage() {
     webdev: [
       {
         id: 'web1',
+        title: t('portfolioSiteTitle'),
+        description: t('portfolioSiteDesc'),
+        githubLink: 'https://github.com/Lukeino/Website',
+        playLink: null,
+        downloadLink: null,
+        images: []
+      },
+      {
+        id: 'web2',
         title: t('oldPortfolioTitle'),
         description: t('oldPortfolioDesc'),
         githubLink: 'https://github.com/Lukeino/PortfolioWebsite-Legacy-',

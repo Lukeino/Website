@@ -266,10 +266,34 @@ body::before {
 
 .header .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 20px;
   position: relative;
+}
+
+.archive-section {
+  flex-shrink: 0;
+}
+
+.archive-projects-btn.standalone {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  transition: all 0.3s ease;
+}
+
+.archive-projects-btn.standalone:hover {
+  background: rgba(255, 107, 53, 0.2);
+  border-color: var(--secondary-color);
+  transform: translateY(-1px);
+}
+
+.nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav ul {
@@ -324,11 +348,21 @@ body::before {
   color: var(--secondary-color) !important;
   font-weight: 600;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 
 .archive-projects-btn:hover {
   color: var(--primary-color) !important;
   text-shadow: 0 0 10px rgba(0, 122, 204, 0.5);
+}
+
+.archive-projects-btn svg {
+  transition: transform 0.2s ease;
+}
+
+.archive-projects-btn:hover svg {
+  transform: translateY(-1px);
 }
 
 .nav-divider {
@@ -600,14 +634,17 @@ body::before {
 }
 
 .hero-content h1 {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   margin-bottom: 1rem;
   line-height: 1.2;
   color: var(--text-primary);
+  font-family: 'Fira Code', 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .hero-content h2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: var(--primary-color);
   font-weight: 400;
   margin-bottom: 1.5rem;
@@ -1754,6 +1791,7 @@ h2::after {
   justify-content: center;
   align-items: center;
   gap: 0.75rem;
+  min-height: 40px; /* Ensure consistent height */
 }
 
 .btn-icon {
@@ -1847,7 +1885,10 @@ h2::after {
   }
   
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 3.2rem;
+    font-family: 'Fira Code', 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
   
   .about-content {
@@ -2025,6 +2066,19 @@ h2::after {
 
 /* Intermediate responsive breakpoint for tablets */
 @media (max-width: 900px) {
+  .archive-section {
+    display: none;
+  }
+  
+  .header .container {
+    justify-content: center;
+  }
+  
+  .nav {
+    position: static;
+    transform: none;
+  }
+  
   .menu-toggle {
     display: block !important;
   }
@@ -2115,9 +2169,12 @@ h2::after {
   }
   
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 3.0rem;
     line-height: 1.1;
     margin-bottom: 1.5rem;
+    font-family: 'Fira Code', 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
   
   .hero-content h2 {

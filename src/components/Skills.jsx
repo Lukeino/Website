@@ -7,16 +7,14 @@
 
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useScrollAnimation, useStaggeredAnimation } from '../hooks/useScrollAnimation';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { 
   SiUnity, 
   SiGodotengine,
-  SiJavascript, 
-  SiPython, 
+  SiJavascript,   SiPython, 
   SiReact, 
   SiNodedotjs,
   SiScikitlearn,
-  SiPytorch,
   SiC,
   SiCplusplus,
   SiConstruct3,
@@ -40,12 +38,6 @@ import { SiAdobephotoshop } from "react-icons/si";
 function Skills() {
   const { t } = useLanguage();
   const sectionRef = useScrollAnimation();
-  const gameEngineGridRef = useStaggeredAnimation(100);
-  const programmingGridRef = useStaggeredAnimation(100);
-  const webDevGridRef = useStaggeredAnimation(100);
-  const databaseGridRef = useStaggeredAnimation(100);
-  const securityGridRef = useStaggeredAnimation(100);
-  const aiMlGridRef = useStaggeredAnimation(100);
   
   return (
     <section id="skills" className="skills-section scanlines" ref={sectionRef}>
@@ -56,28 +48,28 @@ function Skills() {
           {/* Programming Languages */}
           <div className="skill-category">
             <h4 className="category-title">{t('programmingLanguagesCategory')}</h4>
-            <div className="skills-grid" ref={programmingGridRef}>
-              <div className="skill-item pixel-float luca-stagger-item">
+            <div className="skills-grid">
+              <div className="skill-item pixel-float">
                 <SiC className="skill-icon" />
                 <span>C</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <TbBrandCSharp className="skill-icon" />
                 <span>C#</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiCplusplus className="skill-icon" />
                 <span>C++</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiPython className="skill-icon" />
                 <span>Python</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <FaJava className="skill-icon" />
                 <span>Java</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiJavascript className="skill-icon" />
                 <span>JavaScript</span>
               </div>
@@ -87,48 +79,48 @@ function Skills() {
           {/* Web & Software Development */}
           <div className="skill-category">
             <h4 className="category-title">{t('webDevelopmentCategory')}</h4>
-            <div className="skills-grid" ref={webDevGridRef}>
-              <div className="skill-item pixel-float luca-stagger-item">
+            <div className="skills-grid">
+              <div className="skill-item pixel-float">
                 <FaHtml5 className="skill-icon" />
                 <span>HTML5</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <FaCss3Alt className="skill-icon" />
                 <span>CSS</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiReact className="skill-icon" />
                 <span>React</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiNodedotjs className="skill-icon" />
                 <span>Node.js</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiVite className="skill-icon" />
                 <span>Vite</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiStrapi className="skill-icon" />
                 <span>Strapi</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <FaJoomla className="skill-icon" />
                 <span>Joomla!</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <BsWindowStack className="skill-icon" />
                 <span>WPF</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiGit className="skill-icon" />
                 <span>Git</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiGithub className="skill-icon" />
                 <span>GitHub</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <BiLogoNetlify className="skill-icon" />
                 <span>Netlify</span>
               </div>
@@ -138,12 +130,12 @@ function Skills() {
           {/* DBMS */}
           <div className="skill-category">
             <h4 className="category-title">{t('databaseCategory')}</h4>
-            <div className="skills-grid" ref={databaseGridRef}>
-              <div className="skill-item pixel-float luca-stagger-item">
+            <div className="skills-grid">
+              <div className="skill-item pixel-float">
                 <SiMysql className="skill-icon" />
                 <span>MySQL</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiSqlite className="skill-icon" />
                 <span>SQLite</span>
               </div>
@@ -153,32 +145,32 @@ function Skills() {
           {/* Game Engine & Tools */}
           <div className="skill-category">
             <h4 className="category-title">{t('gameEngineCategory')}</h4>
-            <div className="skills-grid" ref={gameEngineGridRef}>
-              <div className="skill-item pixel-float luca-stagger-item">
+            <div className="skills-grid">
+              <div className="skill-item pixel-float">
                 <SiUnity className="skill-icon" />
                 <span>Unity</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiConstruct3 className="skill-icon" />
                 <span>Construct 3</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiGodotengine className="skill-icon" />
                 <span>Godot</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <GiBroadsword className="skill-icon" />
                 <span>RPG Maker MV</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiBlender className="skill-icon" />
                 <span>Blender</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiAudacity className="skill-icon" />
                 <span>Audacity</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiAdobephotoshop className="skill-icon" />
                 <span>Photoshop</span>
               </div>
@@ -188,12 +180,12 @@ function Skills() {
           {/* Security & Analysis */}
           <div className="skill-category">
             <h4 className="category-title">{t('securityCategory')}</h4>
-            <div className="skills-grid" ref={securityGridRef}>
-              <div className="skill-item pixel-float luca-stagger-item">
+            <div className="skills-grid">
+              <div className="skill-item pixel-float">
                 <GiSpikedDragonHead className="skill-icon" />
                 <span>Ghidra</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <SiWireshark className="skill-icon" />
                 <span>Wireshark</span>
               </div>
@@ -203,16 +195,11 @@ function Skills() {
           {/* AI/ML */}
           <div className="skill-category">
             <h4 className="category-title">{t('aiMlCategory')}</h4>
-            <div className="skills-grid" ref={aiMlGridRef}>
-              <div className="skill-item pixel-float luca-stagger-item">
+            <div className="skills-grid">              <div className="skill-item pixel-float">
                 <SiScikitlearn className="skill-icon" />
                 <span>Scikit Learn</span>
               </div>
-              <div className="skill-item pixel-float luca-stagger-item">
-                <SiPytorch className="skill-icon" />
-                <span>PyTorch</span>
-              </div>
-              <div className="skill-item pixel-float luca-stagger-item">
+              <div className="skill-item pixel-float">
                 <FaBrain className="skill-icon" />
                 <span>Q-Learning</span>
               </div>

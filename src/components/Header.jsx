@@ -121,6 +121,20 @@ function Header() {
   return (
     <header className="header">
       <div className="container">
+        {/* Pulsante Archivio separato a sinistra */}
+        <div className="archive-section">
+          <Link 
+            to="/all-projects" 
+            className={`archive-projects-btn standalone ${activeSection === 'all-projects' ? 'active' : ''}`}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style={{ marginRight: '6px' }}>
+              <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+            {t('allProjectsTitle')}
+          </Link>
+        </div>
+
         {/* Menu mobile hamburger */}
         <button className="menu-toggle" onClick={handleMenuToggle}>
           <span className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
@@ -140,21 +154,22 @@ function Header() {
             <li className="nav-divider">|</li>
             <li><button onClick={() => handleNavClickWithMenuClose('projects')} className={`nav-button ${activeSection === 'projects' ? 'active' : ''}`}>{t('projects')}</button></li>
             <li className="nav-divider">|</li>
-            <li>
-              <Link 
-                to="/all-projects" 
-                className={`nav-button archive-projects-btn ${activeSection === 'all-projects' ? 'active' : ''}`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {t('allProjectsTitle')}
-              </Link>
-            </li>
-            <li className="nav-divider">|</li>
             <li><button onClick={() => handleNavClickWithMenuClose('contact')} className={`nav-button ${activeSection === 'contact' ? 'active' : ''}`}>{t('contact')}</button></li>
           </ul>
           
           {/* Mostra le azioni nel menu mobile */}
           <div className="nav-mobile-actions">
+            <Link 
+              to="/all-projects" 
+              className={`archive-projects-btn mobile ${activeSection === 'all-projects' ? 'active' : ''}`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style={{ marginRight: '6px' }}>
+                <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+              </svg>
+              {t('allProjectsTitle')}
+            </Link>
+            
             <button 
               className="language-toggle mobile"
               onClick={() => {

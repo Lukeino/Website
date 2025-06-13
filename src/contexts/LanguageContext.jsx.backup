@@ -1,15 +1,18 @@
 /**
  * LanguageContext
- * Author: Luca Iantosco
- * Description: React context for multi-language support with Italian and English translations
+ * Author: Luca Ianto    aboutTitle: "Chi Sono",
+    aboutDescription1: "Sono Luca Iantosco, uno studente di Informatica e Tecnologie per la Produzione del Software presso l'Università degli Studi di Bari Aldo Moro.",
+    aboutDescription2: "Posseggo attualmente competenze relativamente versatili, che spaziano tra il Game Development e il Web Development, tra il Machine Learning e la Cyber Security.",
+    aboutDescription3: "La maggior parte delle mie soft skills derivano da progetti come solo dev e dal mio percorso di studi.",
+    aboutDescription4: "Nell'ambito del Game Development, pubblico sotto l'alias \"Madspace Interactive\".",
+    aboutDescription5: "Credo fermamente che il software migliore nasca dall'equilibrio tra logica ed immaginazione: ogni riga di codice è per me un'opportunità per risolvere un problema, raccontare una storia o costruire qualcosa che abbia un impatto reale sulle persone.",* Description: React context for multi-language support with Italian and English translations
  * Date: June 2, 2025
  */
 
 import React, { createContext, useContext, useState, useEffect } from 'react'
 
 // Translation data
-const translations = {
-  it: {
+const translations = {  it: {
     // Navigation
     home: "Home",
     about: "Chi Sono",
@@ -36,38 +39,31 @@ const translations = {
     // Hero Section
     heroTitle: "Luca Iantosco",
     heroSubtitle: "Software & Game Developer",
+    
     heroSubtitleVariants: [
       "Full-Stack Developer",
       "Game Developer",
-    ],
-    heroDescription: "Creo mondi virtuali.",
+    ],    heroDescription: "Creo mondi virtuali.",
     myProjects: "Esplora i Progetti",
-    contactMe: "Contattami",
-
-    // About Section
+    contactMe: "Contattami",    // About Section
     aboutTitle: "Chi Sono",
-    aboutDescription1: "Sono Luca Iantosco, uno studente di Informatica e Tecnologie per la Produzione del Software presso l'Università degli Studi di Bari Aldo Moro.",
-    aboutDescription2: "Attualmente possiedo competenze piuttosto versatili, che spaziano dallo sviluppo di videogiochi al web development, dal machine learning alla cyber security.",
-    aboutDescription3: "La maggior parte delle mie soft skills derivano da progetti come solo dev e dal mio percorso di studi.",
-    aboutDescription4: "Nell'ambito del Game Development, pubblico sotto l'alias \"Madspace Interactive\".",
-    aboutDescription5: "Credo fermamente che il software migliore nasca dall'equilibrio tra logica ed immaginazione: ogni riga di codice è per me un'opportunità per risolvere un problema, raccontare una storia o costruire qualcosa che abbia un impatto reale sulle persone.",
+    aboutDescription1: "Sono Luca Iantosco, uno studente di Informatica e Tecnologie per la Produzione del Software presso l'Università degli Studi di Bari. La mia specializzazione è nello sviluppo di videogiochi, software e applicazioni web.",
+    aboutDescription2: "Ho esperienza nello sviluppo full-stack utilizzando tecnologie moderne, programmazione orientata agli oggetti e nella creazione di sistemi interattivi come giochi, strumenti e interfacce utente. Sono anche fortemente interessato al mondo del machine learning e dell'intelligenza artificiale.",
+    aboutDescription3: "Pubblico i miei lavori nel campo del game development sotto l’alias “Madspace Interactive”",
+    aboutDescription4: "Credo fermamente che il software migliore nasca dall’equilibrio tra logica e immaginazione: ogni riga di codice è per me un’opportunità per risolvere un problema, raccontare una storia o costruire qualcosa che abbia un impatto reale sulle persone.",
     
     // Education Section
     educationTitle: "Educazione",
     degreeTitle: "Laureando in Informatica e<br/>Tecnologie per la Produzione<br/>del Software",
     universityName: "Università degli Studi di Bari Aldo Moro",
     
-    skillsTitle: "Le Mie Competenze",
-
-    // Skill Categories
+    skillsTitle: "Le Mie Competenze",    // Skill Categories
     gameEngineCategory: "Game Engine & Strumenti",
     programmingLanguagesCategory: "Linguaggi di Programmazione", 
     webDevelopmentCategory: "Sviluppo Software & Web",
     databaseCategory: "DBMS",
     securityCategory: "Sicurezza e Analisi",
-    aiMlCategory: "AI/ML",
-
-    // Projects Section
+    aiMlCategory: "AI/ML",    // Projects Section
     projectsTitle: "I Miei Progetti",
     featuredProjects: "Progetti in Evidenza",
     gameDevProjects: "Game Development", 
@@ -81,18 +77,13 @@ const translations = {
     // StatsConverter Project
     statsConverterTitle: "StatsConverter",
     statsConverterDesc: "Piccolo software sviluppato usando WPF (Windows Presentation Foundation) che sfrutta la tecnologia Google \"Tesseract OCR\" per convertire i file .jpg/.png in .txt",
-
-    // Featured Project - The Hollow Dungeons
+      // Featured Project - The Hollow Dungeons
     hollowDungeonsTitle: "The Hollow Dungeons",
     hollowDungeonsDesc: "Un videogioco dark fantasy RPG in 3D che combina atmosfere gotiche con una grafica retro nostalgica.",
     developedByAlias: "Sviluppato sotto l'alias Madspace Interactive",
-    inDevelopment: "In Sviluppo",
-
-    // Featured Project - CareerConnect
+    inDevelopment: "In Sviluppo",    // Featured Project - CareerConnect
     careerConnectTitle: "CareerConnect",
-    careerConnectDesc: "Piattaforma di recruiting e ricerca di lavoro sviluppata in un team di 4 persone con metodologia Agile. Realizzata in React+Vite, hosting in Amazon AWS (EC2) e Netlify.",
-
-    // Portfolio Site
+    careerConnectDesc: "Piattaforma di recruiting e ricerca di lavoro sviluppata in un team di 4 persone con metodologia Agile. Realizzata in React+Vite, hosting in Amazon AWS (EC2) e Netlify.",// Portfolio Site
     portfolioSiteTitle: "Portfolio",
     portfolioSiteDesc: "Questo sito, realizzato per mostrare le mie capacità e i miei progetti!",
     
@@ -103,17 +94,14 @@ const translations = {
     // Old Portfolio Project
     oldPortfolioTitle: "Portfolio (Vecchia Versione)",
     oldPortfolioDesc: "Una vecchia versione più statica del mio sito web portfolio. Sviluppata con HTML, CSS e SCSS.",
-
-    projectPortfolio: "Portfolio GameDev",
+      projectPortfolio: "Portfolio GameDev",
     projectPortfolioDesc: "Il mio sito portfolio personale per showcasare i miei progetti di game development",
-
-    // Prototype Games
+      // Prototype Games
     prototypeGamesTitle: "Prototipi di Gioco",
     prototypeGamesDesc: "Una collezione di prototipi ed esperimenti di game development che rappresentano il mio percorso di apprendimento nel mondo dello sviluppo di videogiochi.",
     
     projectExample: "Gioco 2D Platform",
-    projectExampleDesc: "Un platform 2D sviluppato in Unity con meccaniche innovative e pixel art",
-    anotherProject: "Sistema AI per Giochi",
+    projectExampleDesc: "Un platform 2D sviluppato in Unity con meccaniche innovative e pixel art",anotherProject: "Sistema AI per Giochi",
     anotherProjectDesc: "Implementazione di intelligenza artificiale per NPC con machine learning",
     
     // Machine Learning Projects
@@ -143,6 +131,8 @@ const translations = {
     closeGallery: "Chiudi Galleria",
     previousImage: "Immagine Precedente", 
     nextImage: "Immagine Successiva",
+      demo: "Demo",
+    github: "GitHub",
     
     // Contact Section
     contactTitle: "Contattami",
@@ -163,17 +153,13 @@ const translations = {
     
     // Footer
     allRightsReserved: "Tutti i diritti riservati."
-  },
-
-  en: {
-    // Navigation
+  },  en: {    // Navigation
     home: "Home",
     about: "About",
     skills: "Skills",
     projects: "Projects",
     contact: "Contact",
     downloadCV: "Download CV",
-
     // Table headers
     title: "Title",
     projectName: "Project Name",
@@ -187,23 +173,18 @@ const translations = {
     // Buttons
     demo: "Demo",
     github: "GitHub",
-    website: "Visit Site",
-
-    // Hero Section
+    website: "Visit Site",// Hero Section
     heroTitle: "Luca Iantosco",
-    heroSubtitle: "Software & Game Developer",
-    heroSubtitleVariants: [
+    heroSubtitle: "Software & Game Developer",    heroSubtitleVariants: [
       "Full-Stack Developer",
       "Game Developer",
-    ],
-    heroDescription: "I create virtual worlds.",
+    ],    heroDescription: "I create virtual worlds.",
     myProjects: "Explore Projects",
     contactMe: "Contact Me",
-
-    // About Section
+      // About Section
     aboutTitle: "About Me",
     aboutDescription1: "I'm Luca Iantosco, a Computer Science and Software Production Technologies student at the University of Bari Aldo Moro.",
-    aboutDescription2: "I currently possess quite versatile skills, ranging from video game development to web development, from machine learning to cyber security.",
+    aboutDescription2: "I currently possess relatively versatile skills, ranging from Game Development to Web Development, from Machine Learning to Cyber Security.",
     aboutDescription3: "Most of my soft skills derive from solo dev projects and my academic journey.",
     aboutDescription4: "In the Game Development field, I publish under the alias \"Madspace Interactive\".",
     aboutDescription5: "I firmly believe that the best software comes from the balance between logic and imagination: every line of code is for me an opportunity to solve a problem, tell a story or build something that has a real impact on people.",
@@ -213,17 +194,13 @@ const translations = {
     degreeTitle: "Bachelor's candidate in<br/>Computer Science",
     universityName: "University of Bari Aldo Moro",
     
-    skillsTitle: "My Skills",
-
-    // Skill Categories
+    skillsTitle: "My Skills",    // Skill Categories
     gameEngineCategory: "Game Engines & Tools",
     programmingLanguagesCategory: "Programming Languages",
     webDevelopmentCategory: "Web & Software Development", 
     databaseCategory: "DBMS",
     securityCategory: "Security & Analysis",
-    aiMlCategory: "AI/ML",
-
-    // Projects Section
+    aiMlCategory: "AI/ML",    // Projects Section
     projectsTitle: "My Projects",
     featuredProjects: "Featured Projects",
     gameDevProjects: "Game Development",
@@ -237,18 +214,13 @@ const translations = {
     // StatsConverter Project
     statsConverterTitle: "StatsConverter",
     statsConverterDesc: "Small software developed using WPF (Windows Presentation Foundation) that leverages Google's \"Tesseract OCR\" technology to convert .jpg/.png files to .txt",
-
-    // Featured Project - The Hollow Dungeons
+      // Featured Project - The Hollow Dungeons
     hollowDungeonsTitle: "The Hollow Dungeons",
     hollowDungeonsDesc: "A dark fantasy 3D RPG that combines gothic atmospheres with nostalgic retro graphics.",
     developedByAlias: "Developed under the Madspace Interactive alias",
-    inDevelopment: "In Development",
-
-    // Featured Project - CareerConnect
+    inDevelopment: "In Development",    // Featured Project - CareerConnect
     careerConnectTitle: "CareerConnect",
-    careerConnectDesc: "Recruiting and job search platform developed by a team of 4 people using Agile methodology. Built with React+Vite, hosted on Amazon AWS (EC2) and Netlify.",
-
-    // Portfolio Site
+    careerConnectDesc: "Recruiting and job search platform developed by a team of 4 people using Agile methodology. Built with React+Vite, hosted on Amazon AWS (EC2) and Netlify.",// Portfolio Site
     portfolioSiteTitle: "Portfolio",
     portfolioSiteDesc: "This website, created to showcase my skills and projects!",
     
@@ -259,17 +231,14 @@ const translations = {
     // Old Portfolio Project
     oldPortfolioTitle: "Portfolio (Old Version)",
     oldPortfolioDesc: "An older, more static version of my portfolio website. Developed with HTML, CSS and SCSS.",
-
-    projectPortfolio: "GameDev Portfolio",
+      projectPortfolio: "GameDev Portfolio",
     projectPortfolioDesc: "My personal portfolio website to showcase my game development projects",
-
-    // Prototype Games
+      // Prototype Games
     prototypeGamesTitle: "Game Prototypes",
     prototypeGamesDesc: "A collection of prototypes and game development experiments representing my learning journey in the world of video game development.",
     
     projectExample: "2D Platform Game",
-    projectExampleDesc: "A 2D platform game developed in Unity with innovative mechanics and pixel art",
-    anotherProject: "AI System for Games",
+    projectExampleDesc: "A 2D platform game developed in Unity with innovative mechanics and pixel art",anotherProject: "AI System for Games",
     anotherProjectDesc: "Implementation of artificial intelligence for NPCs with machine learning",
     
     // Machine Learning Projects
@@ -299,6 +268,8 @@ const translations = {
     closeGallery: "Close Gallery",
     previousImage: "Previous Image",
     nextImage: "Next Image",
+      demo: "Demo",
+    github: "GitHub",
     
     // Contact Section
     contactTitle: "Contact Me",
