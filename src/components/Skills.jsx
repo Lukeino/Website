@@ -28,7 +28,7 @@ import {
   SiWireshark,
   SiAudacity
 } from 'react-icons/si';
-import { FaBrain, FaJava, FaHtml5, FaJoomla, FaCss3Alt } from 'react-icons/fa';
+import { FaBrain, FaJava, FaHtml5, FaJoomla, FaCss3Alt, FaAws } from 'react-icons/fa';
 import { TbBrandCSharp } from 'react-icons/tb';
 import { GiBroadsword, GiSpikedDragonHead } from 'react-icons/gi';
 import { BsWindowStack } from "react-icons/bs";
@@ -119,10 +119,13 @@ function Skills() {
               <div className="skill-item pixel-float">
                 <SiGithub className="skill-icon" />
                 <span>GitHub</span>
-              </div>
-              <div className="skill-item pixel-float">
+              </div>              <div className="skill-item pixel-float">
                 <BiLogoNetlify className="skill-icon" />
                 <span>Netlify</span>
+              </div>
+              <div className="skill-item pixel-float">
+                <FaAws className="skill-icon" />
+                <span>AWS</span>
               </div>
             </div>
           </div>
