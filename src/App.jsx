@@ -14,7 +14,6 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import PixelBackground from './components/PixelBackground'
 import AllProjectsPage from './components/AllProjectsPage'
 import './styles/App.css'
 
@@ -43,7 +42,6 @@ function App() {
     <Router>
       <div className="App">
         <ScrollToTop />
-        <PixelBackground />
         <Header />
         <Routes>
           <Route path="/" element={
