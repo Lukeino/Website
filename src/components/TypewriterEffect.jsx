@@ -53,7 +53,6 @@ function TypewriterEffect({ texts, speed = 100, deleteSpeed = 50, delayBetween =
   return (
     <span className="typewriter-text">
       {currentText}
-      <span className="typewriter-cursor">|</span>
     </span>
   )
 }
