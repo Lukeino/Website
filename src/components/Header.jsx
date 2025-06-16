@@ -92,19 +92,17 @@ function Header() {
         
         scrollHandlerRef.current = handleScroll;
         
-        // Aspetta che la pagina sia completamente caricata
-        setTimeout(() => {
-          if (!isAutoScrolling) {
-            sections.forEach((sectionId) => {
-              const element = document.getElementById(sectionId);
-              if (element && observerRef.current) {
-                observerRef.current.observe(element);
-              }
-            });
-            
-            window.addEventListener('scroll', scrollHandlerRef.current, { passive: true });
-          }
-        }, 1000);
+        // Setup observer immediately instead of delayed
+        if (!isAutoScrolling) {
+          sections.forEach((sectionId) => {
+            const element = document.getElementById(sectionId);
+            if (element && observerRef.current) {
+              observerRef.current.observe(element);
+            }
+          });
+          
+          window.addEventListener('scroll', scrollHandlerRef.current, { passive: true });
+        }
       };
       
       // Funzione per fermare l'observer

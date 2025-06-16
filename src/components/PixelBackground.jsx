@@ -18,6 +18,13 @@ function PixelBackground() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const isMobile = window.innerWidth <= 768
     
+    // Skip entirely on mobile for better performance
+    if (isMobile) {
+      return () => {
+        window.removeEventListener('resize', resizeCanvas)
+      }
+    }
+    
     // Set canvas dimensions
     const resizeCanvas = () => {
       canvas.width = window.innerWidth

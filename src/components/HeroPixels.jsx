@@ -13,12 +13,15 @@ function HeroPixels() {
   
   // Use state to avoid rendering issues during hydration
   const [pixels, setPixels] = useState([]);
-  
-  // Generate pixels only after component mounts to avoid hydration mismatch
+    // Generate pixels only after component mounts to avoid hydration mismatch
   useEffect(() => {
+    // Skip on mobile for better performance
+    if (window.innerWidth <= 768) {
+      return;
+    }
+    
     // Generate array of pixels with random properties
-    // Riduciamo il numero di pixel per migliorare le prestazioni
-    const pixelCount = window.innerWidth <= 768 ? 8 : 15; // Ridotto ulteriormente per performance
+    const pixelCount = window.innerWidth <= 1024 ? 8 : 12; // Further reduced for performance
     
     const generatedPixels = Array.from({ length: pixelCount }, (_, i) => ({    
       id: i,

@@ -58,8 +58,7 @@ function Projects() {
         github: null,
         image: hollowDungeonsImage,
         hideDemoButton: true,
-        hideGitHubButton: true
-      },{
+        hideGitHubButton: true      },{
         id: 4,
         title: t('prototypeGamesTitle'),
         description: t('prototypeGamesDesc'),
