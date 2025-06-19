@@ -44,15 +44,73 @@ function AllProjectsPage() {
   const [currentProject, setCurrentProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // Assicurati sempre che la pagina parta dall'inizio quando viene caricata
+  useEffect(() => {
+    // Solo se non c'è hash nell'URL, forza lo scroll all'inizio
+    if (!location.hash) {
+      // Forza immediatamente lo scroll all'inizio con scrollBehavior instant
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+      });
+      
+      // Backup con timeout multipli per essere super sicuri
+      const timeouts = [
+        setTimeout(() => window.scrollTo(0, 0), 10),
+        setTimeout(() => window.scrollTo(0, 0), 50),
+        setTimeout(() => window.scrollTo(0, 0), 100),
+        setTimeout(() => window.scrollTo(0, 0), 200)
+      ];
+      
+      return () => timeouts.forEach(clearTimeout);
+    }
+    
+    // Se c'è un hash, aggiungi solo un listener per il load come backup
+    const handleLoad = () => {
+      if (!location.hash) {
+        window.scrollTo(0, 0);
+      }
+    };
+    window.addEventListener('load', handleLoad);
+    
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, [location.hash]);
+
+  // Forza scroll all'inizio quando il pathname include 'all-projects' MA SOLO se non c'è hash
+  useEffect(() => {
+    if (location.pathname === '/all-projects' && !location.hash) {
+      // Scroll immediato e aggressivo solo se non c'è hash
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+      });
+      
+      // Backup multipli
+      setTimeout(() => window.scrollTo(0, 0), 0);
+      setTimeout(() => window.scrollTo(0, 0), 10);
+      setTimeout(() => window.scrollTo(0, 0), 50);
+    }
+  }, [location.pathname, location.hash]);
+
   // Scroll to the correct section when page loads with hash
   useEffect(() => {
     if (location.hash) {
       const element = document.querySelector(location.hash);
       if (element) {
+        // Aumentiamo il timeout per assicurarci che la pagina sia completamente caricata
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
+        }, 300);
       }
+    } else {
+      // Se non c'è hash, forza lo scroll all'inizio (solo come backup)
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 10);
     }
   }, [location.hash]);
 
@@ -125,15 +183,6 @@ function AllProjectsPage() {
       }
     ],
     webdev: [
-      {
-        id: 'web1',
-        title: t('portfolioSiteTitle'),
-        description: t('portfolioSiteDesc'),
-        githubLink: 'https://github.com/Lukeino/Website',
-        playLink: null,
-        downloadLink: null,
-        images: []
-      },
       {
         id: 'web2',
         title: t('oldPortfolioTitle'),

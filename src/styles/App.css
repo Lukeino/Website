@@ -353,8 +353,8 @@ body::before {
 }
 
 .archive-projects-btn:hover {
-  color: var(--primary-color) !important;
-  text-shadow: 0 0 10px rgba(0, 122, 204, 0.5);
+  color: var(--secondary-color) !important;
+  text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
 }
 
 .archive-projects-btn svg {
@@ -363,6 +363,19 @@ body::before {
 
 .archive-projects-btn:hover svg {
   transform: translateY(-1px);
+}
+
+/* Stile per il pulsante Archivio progetti quando è attivo */
+.archive-projects-btn.active {
+  background: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+  transform: translateY(-1px);
+}
+
+.archive-projects-btn.active svg {
+  color: white;
 }
 
 .nav-divider {
