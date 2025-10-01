@@ -9,10 +9,9 @@ import React from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { useScrollAnimation, useStaggeredAnimation } from '../hooks/useScrollAnimation'
 import { Link } from 'react-router-dom'
-import hollowDungeonsImage from '../assets/TheHollowDungeons.jpg'
+import kaladBolgChroniclesImage from '../assets/TheKaladbolgChronicles.jpg'
 import careerConnectImage from '../assets/CareerConnect.png'
 import portfolioImage from '../assets/Portfolio.png'
-import healthboardImage from '../assets/Healthboard.png'
 import sklearnImage from '../assets/Sklearn.png'
 import prototypesGif from '../assets/Prototipi.gif'
 
@@ -27,13 +26,13 @@ function Projects() {
   // Project categories with data
   const projectCategories = {
     featured: [      {
-        id: 1,        title: t('hollowDungeonsTitle'),
-        description: t('hollowDungeonsDesc'),
+        id: 1,        title: t('kaladBolgChroniclesTitle'),
+        description: t('kaladBolgChroniclesDesc'),
         technologies: ["Unity", "C#"],
         link: "#",
         github: null,
         category: "game",
-        image: hollowDungeonsImage,
+        image: kaladBolgChroniclesImage,
         hideDemoButton: true,
         hideGitHubButton: true
       },      {
@@ -52,11 +51,11 @@ function Projects() {
 
     gameDev: [      {
         id: 3,
-        title: t('hollowDungeonsTitle'),
-        description: t('hollowDungeonsDesc'),
+        title: t('kaladBolgChroniclesTitle'),
+        description: t('kaladBolgChroniclesDesc'),
         technologies: ["Unity", "C#"],        link: "#",
         github: null,
-        image: hollowDungeonsImage,
+        image: kaladBolgChroniclesImage,
         hideDemoButton: true,
         hideGitHubButton: true      },{
         id: 4,
@@ -79,15 +78,6 @@ function Projects() {
         image: portfolioImage,
         hideDemoButton: true
       },      {
-        id: 2,
-        title: t('healthboardTitle'),
-        description: t('healthboardDesc'),
-        technologies: ["React", "Vite", "CSS", "SQLite"],
-        link: "#",
-        github: "https://github.com/Lukeino/Healthboard-website",
-        image: healthboardImage,
-        hideDemoButton: true
-      },      {
         id: 5,
         title: t('careerConnectTitle'),
         description: t('careerConnectDesc'),
@@ -98,7 +88,7 @@ function Projects() {
         image: careerConnectImage,
         hideDemoButton: true
       }
-    ],    researchAi: [
+    ],researchAi: [
       {
         id: 3,
         title: t('sklearnProjectsTitle'),
@@ -110,14 +100,6 @@ function Projects() {
         showDetailsButton: true,
         hideDemoButton: true
       }
-      // Temporaneamente nascosto - Neural Network Optimizer
-      // {
-      //   id: 6,
-      //   title: "Neural Network Optimizer",
-      //   description: "Sistema di ottimizzazione automatica per reti neurali usando algoritmi genetici",
-      //   technologies: ["Python", "PyTorch", "Scikit-learn"],
-      //   link: "#",
-      //   github: "#"      // }
     ]
   }
 
@@ -138,7 +120,7 @@ function Projects() {
       </div>      <div className="project-content">
         <h3>{project.title}</h3>
         <p>{project.description}</p>
-        {project.title === t('hollowDungeonsTitle') && (
+        {project.title === t('kaladBolgChroniclesTitle') && (
           <p className="project-alias-disclaimer">{t('developedByAlias')}</p>
         )}
         {project.disclaimer && (

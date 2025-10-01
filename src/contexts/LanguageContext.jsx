@@ -25,6 +25,7 @@ const translations = {
     technologies: "Tecnologie",
     link: "Link",
     viewProject: "Visualizza Progetto",
+    thumbnail: "Anteprima",
     projectTitle: "TITOLO",
     projectDescription: "DESCRIZIONE",
 
@@ -82,9 +83,9 @@ const translations = {
     statsConverterTitle: "StatsConverter",
     statsConverterDesc: "Piccolo software sviluppato usando WPF (Windows Presentation Foundation) che sfrutta la tecnologia Google \"Tesseract OCR\" per convertire i file .jpg/.png in .txt",
 
-    // Featured Project - The Hollow Dungeons
-    hollowDungeonsTitle: "The Hollow Dungeons",
-    hollowDungeonsDesc: "Un videogioco dark fantasy RPG in 3D che combina atmosfere gotiche con una grafica retro nostalgica.",
+    // Featured Project - The Kaladbolg Chronicles
+    kaladBolgChroniclesTitle: "The Kaladbolg Chronicles",
+    kaladBolgChroniclesDesc: "Un videogioco 3D Dark Fantasy RPG sviluppato con Unity e integrazione AI (Ollama / llama3.2:3b) per dialoghi e comportamenti di gioco dinamici.", 
     developedByAlias: "Sviluppato sotto l'alias Madspace Interactive",
     inDevelopment: "In Sviluppo",
 
@@ -181,6 +182,7 @@ const translations = {
     technologies: "Technologies",
     link: "Link",
     viewProject: "View Project",
+    thumbnail: "Thumbnail",
     projectTitle: "TITLE",
     projectDescription: "DESCRIPTION",
 
@@ -238,9 +240,9 @@ const translations = {
     statsConverterTitle: "StatsConverter",
     statsConverterDesc: "Small software developed using WPF (Windows Presentation Foundation) that leverages Google's \"Tesseract OCR\" technology to convert .jpg/.png files to .txt",
 
-    // Featured Project - The Hollow Dungeons
-    hollowDungeonsTitle: "The Hollow Dungeons",
-    hollowDungeonsDesc: "A dark fantasy 3D RPG that combines gothic atmospheres with nostalgic retro graphics.",
+    // Featured Project - The Kaladbolg Chronicles
+    kaladBolgChroniclesTitle: "The Kaladbolg Chronicles",
+    kaladBolgChroniclesDesc: "A 3D Dark Fantasy RPG developed with Unity and AI integration (Ollama / llama3.2:3b) for dynamic dialogues and game behaviors.",
     developedByAlias: "Developed under the Madspace Interactive alias",
     inDevelopment: "In Development",
 
