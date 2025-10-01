@@ -1344,6 +1344,49 @@ body::before {
   }
 }
 
+/* Development Status Indicator */
+.development-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #28a745;
+  border-radius: 50%;
+  animation: pulse-green 1.5s infinite;
+  box-shadow: 0 0 4px rgba(40, 167, 69, 0.6);
+}
+
+.status-text {
+  color: #28a745;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@keyframes pulse-green {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 4px rgba(40, 167, 69, 0.6);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.2);
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 4px rgba(40, 167, 69, 0.6);
+  }
+}
+
 .project-links {
   display: flex;
   gap: 1rem;

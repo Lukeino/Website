@@ -119,6 +119,12 @@ function Projects() {
         )}
       </div>      <div className="project-content">
         <h3>{project.title}</h3>
+        {project.title === t('kaladBolgChroniclesTitle') && (
+          <div className="development-status">
+            <div className="status-indicator"></div>
+            <span className="status-text">{t('inDevelopment')}</span>
+          </div>
+        )}
         <p>{project.description}</p>
         {project.title === t('kaladBolgChroniclesTitle') && (
           <p className="project-alias-disclaimer">{t('developedByAlias')}</p>
