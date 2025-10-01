@@ -16,7 +16,8 @@ import '../styles/App.css';
 import prototipiGif from '../assets/Prototipi.gif';
 import sklearnPng from '../assets/Sklearn.png';
 import careerConnectPng from '../assets/CareerConnect.png';
-import hollowDungeonsPng from '../assets/TheKaladbolgChronicles.jpg';
+import kaladBolgChroniclesImage from '../assets/TheKaladbolgChronicles.jpg';
+import vortexCorpImage from '../assets/VortexCorpLostTapes.jpg';
 import healthboardPng from '../assets/Healthboard.png';
 import oldPortfolioImage from '../assets/OldPortfolio.png';
 
@@ -26,7 +27,7 @@ const projectThumbnails = {
   'Medievalia': null,
   'StatsConverter': careerConnectPng,
   'Predizione Prezzo Laptop': sklearnPng,
-  'VortexCorp Lost Tapes': hollowDungeonsPng,
+  'VortexCorp Lost Tapes': vortexCorpImage,
   'Healthboard': healthboardPng,
   'Old Portfolio': oldPortfolioImage
 };
