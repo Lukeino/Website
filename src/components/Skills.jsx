@@ -26,7 +26,10 @@ import {
   SiGit,
   SiVite,
   SiWireshark,
-  SiAudacity
+  SiAudacity,
+  SiAngular,
+  SiSpringboot,
+  SiApachemaven
 } from 'react-icons/si';
 import { FaBrain, FaJava, FaHtml5, FaJoomla, FaCss3Alt, FaAws } from 'react-icons/fa';
 import { TbBrandCSharp } from 'react-icons/tb';
@@ -93,8 +96,16 @@ function Skills() {
                 <span>React</span>
               </div>
               <div className="skill-item pixel-float">
+                <SiAngular className="skill-icon" />
+                <span>Angular</span>
+              </div>
+              <div className="skill-item pixel-float">
                 <SiNodedotjs className="skill-icon" />
                 <span>Node.js</span>
+              </div>
+              <div className="skill-item pixel-float">
+                <SiSpringboot className="skill-icon" />
+                <span>Spring Boot</span>
               </div>
               <div className="skill-item pixel-float">
                 <SiVite className="skill-icon" />
@@ -120,6 +131,10 @@ function Skills() {
                 <SiGithub className="skill-icon" />
                 <span>GitHub</span>
               </div>              <div className="skill-item pixel-float">
+                <SiApachemaven className="skill-icon" />
+                <span>Maven</span>
+              </div>
+              <div className="skill-item pixel-float">
                 <BiLogoNetlify className="skill-icon" />
                 <span>Netlify</span>
               </div>
