@@ -29,7 +29,8 @@ import {
   SiAudacity,
   SiAngular,
   SiSpringboot,
-  SiApachemaven
+  SiApachemaven,
+  SiDocker
 } from 'react-icons/si';
 import { FaBrain, FaJava, FaHtml5, FaJoomla, FaCss3Alt, FaAws } from 'react-icons/fa';
 import { TbBrandCSharp } from 'react-icons/tb';
@@ -141,6 +142,10 @@ function Skills() {
               <div className="skill-item pixel-float">
                 <FaAws className="skill-icon" />
                 <span>AWS</span>
+              </div>
+              <div className="skill-item pixel-float">
+                <SiDocker className="skill-icon" />
+                <span>Docker</span>
               </div>
             </div>
           </div>

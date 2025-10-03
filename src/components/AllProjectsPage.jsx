@@ -25,7 +25,7 @@ import oldPortfolioImage from '../assets/OldPortfolio.png';
 const projectThumbnails = {
   'Ghost Tower': null,
   'Medievalia': null,
-  'StatsConverter': careerConnectPng,
+  'StatsConverter': null,
   'Predizione Prezzo Laptop': sklearnPng,
   'VortexCorp Lost Tapes': vortexCorpImage,
   'Healthboard': healthboardPng,
