@@ -113,6 +113,15 @@
   box-shadow: var(--shadow-lg);
 }
 
+/* Remove focus outline on hover (keeps keyboard accessibility) */
+.project-card:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.project-card *:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* ==========================================
    PROJECT IMAGE
    ========================================== */
