@@ -15,14 +15,15 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import AllProjectsPage from './components/AllProjectsPage'
-import './styles/App.css'
+// Removed: import './styles/App.css'
+// Now using modular CSS imported in main.jsx
 
-// Componente per controllare lo scroll
+// Component to control scroll behavior
 function ScrollToTop() {
   const { pathname } = useLocation();
   
   useEffect(() => {
-    // Sempre scroll to top quando cambia il pathname
+    // Always scroll to top when pathname changes
     window.scrollTo(0, 0);
   }, [pathname]);
   

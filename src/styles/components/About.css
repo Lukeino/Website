@@ -1,0 +1,316 @@
+/**
+ * About Component Styles
+ * Author: Luca Iantosco
+ * Description: About section with profile and education
+ * Date: January 2025
+ */
+
+/* ==========================================
+   ABOUT SECTION BASE
+   ========================================== */
+.about {
+  padding: 100px 0;
+  background: var(--primary-bg);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   ABOUT IMAGE SECTION
+   ========================================== */
+.about-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.profile-image {
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--primary-color);
+  box-shadow: 
+    0 0 15px rgba(0, 122, 204, 0.2),
+    inset 0 0 10px rgba(0, 122, 204, 0.05);
+  background: linear-gradient(135deg, rgba(0, 122, 204, 0.1) 0%, rgba(23, 162, 184, 0.1) 100%);
+  padding: 6px;
+  animation: glowBreathing 4s ease-in-out infinite;
+}
+
+.profile-image::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--secondary-color), var(--primary-color));
+  border-radius: 18px;
+  z-index: -1;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================
+   EDUCATION SECTION
+   ========================================== */
+.education-section {
+  width: 100%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(0, 122, 204, 0.2);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: 
+    var(--shadow-lg),
+    0 0 15px rgba(0, 122, 204, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all var(--transition-normal);
+}
+
+.education-section:hover {
+  border-color: rgba(0, 122, 204, 0.4);
+  box-shadow: 
+    var(--shadow-lg),
+    0 0 20px rgba(0, 122, 204, 0.2);
+}
+
+.education-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1.2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.education-title::before,
+.education-title::after {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border-radius: var(--radius-sm);
+}
+
+.education-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.university-logo {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 122, 204, 0.2);
+  transition: all var(--transition-normal);
+}
+
+.university-logo:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(0, 122, 204, 0.4);
+  transform: scale(1.05);
+}
+
+.university-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+.education-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.degree-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.university-name {
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+/* ==========================================
+   ABOUT TEXT
+   ========================================== */
+.about-text p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+/* Tablets */
+@media (max-width: 968px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .education-section {
+    max-width: 100%;
+  }
+  
+  .education-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .university-logo {
+    width: 90px;
+    height: 90px;
+    align-self: center;
+  }
+  
+  .education-info {
+    text-align: center;
+  }
+  
+  .degree-title {
+    font-size: 1.1rem;
+    white-space: normal;
+  }
+  
+  .university-name {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .about {
+    padding: 80px 0 60px 0;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .about-image {
+    gap: 2rem;
+  }
+  
+  .profile-image {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .education-section {
+    padding: 1.2rem;
+  }
+  
+  .education-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .education-title::before,
+  .education-title::after {
+    height: 16px;
+    width: 3px;
+  }
+  
+  .university-logo {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .degree-title {
+    font-size: 1rem;
+  }
+  
+  .university-name {
+    font-size: 0.9rem;
+  }
+  
+  .about-text p {
+    font-size: 1rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .profile-image {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .education-section {
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+  }
+  
+  .education-title {
+    font-size: 1.1rem;
+  }
+  
+  .university-logo {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .degree-title {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  
+  .university-name {
+    font-size: 0.85rem;
+  }
+}

@@ -2,39 +2,37 @@
  * Header Component
  * Author: Luca Iantosco
  * Description: Main navigation header with section links, language toggle, and CV download
- * Date: June 2, 2025
+ * Date: January 2025
  */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [isNavigating, setIsNavigating] = useState(false);
-  const [clickedSection, setClickedSection] = useState(null);
   const [isAutoScrolling, setIsAutoScrolling] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
   
-  // Riferimenti per controllare l'observer
+  // Refs to control the observer
   const observerRef = useRef(null);
   const scrollHandlerRef = useRef(null);
   
   useEffect(() => {
-    // Evidenzia il pulsante "Archivio Progetti" quando siamo sulla pagina AllProjectsPage
+    // Highlight "Archive Projects" button when on AllProjectsPage
     if (location.pathname === '/all-projects') {
       setActiveSection('all-projects');
       return;
     }
     
-    // Observer per l'evidenziazione delle sezioni solo sulla home page
+    // Observer for section highlighting only on homepage
     if (location.pathname === '/') {
       const sections = ['home', 'about', 'skills', 'projects', 'contact'];
       
-      // Funzione per creare e avviare l'observer
+      // Function to create and start the observer
       const startObserver = () => {
         if (observerRef.current) {
           observerRef.current.disconnect();
@@ -47,7 +45,7 @@ function Header() {
         };
 
         const observerCallback = (entries) => {
-          // Se stiamo facendo auto-scroll, non fare nulla
+          // If auto-scrolling, do nothing
           if (isAutoScrolling) return;
           
           let mostVisibleSection = null;
@@ -67,7 +65,7 @@ function Header() {
 
         observerRef.current = new IntersectionObserver(observerCallback, observerOptions);
         
-        // Fallback con scroll listener
+        // Fallback with scroll listener
         const handleScroll = () => {
           if (isAutoScrolling) return;
           
@@ -92,7 +90,7 @@ function Header() {
         
         scrollHandlerRef.current = handleScroll;
         
-        // Setup observer immediately instead of delayed
+        // Setup observer immediately
         if (!isAutoScrolling) {
           sections.forEach((sectionId) => {
             const element = document.getElementById(sectionId);
@@ -105,7 +103,7 @@ function Header() {
         }
       };
       
-      // Funzione per fermare l'observer
+      // Function to stop the observer
       const stopObserver = () => {
         if (observerRef.current) {
           observerRef.current.disconnect();
@@ -115,7 +113,7 @@ function Header() {
         }
       };
       
-      // Se non stiamo facendo auto-scroll, avvia l'observer
+      // If not auto-scrolling, start the observer
       if (!isAutoScrolling) {
         startObserver();
       } else {
@@ -128,11 +126,11 @@ function Header() {
     }
   }, [isAutoScrolling, location.pathname]);
 
-  const handleNavClick = (sectionId) => {
-    // Imposta immediatamente la sezione come attiva
+  const handleNavClick = useCallback((sectionId) => {
+    // Immediately set the section as active
     setActiveSection(sectionId);
     
-    // DISCONNETTI FISICAMENTE l'observer e il listener
+    // Physically disconnect the observer and listener
     if (observerRef.current) {
       observerRef.current.disconnect();
     }
@@ -140,12 +138,10 @@ function Header() {
       window.removeEventListener('scroll', scrollHandlerRef.current);
     }
     
-    // Imposta i flag
-    setIsNavigating(true);
-    setClickedSection(sectionId);
+    // Set flags
     setIsAutoScrolling(true);
     
-    // Torna alla home se siamo su una pagina diversa
+    // Return to home if on a different page
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
@@ -153,50 +149,46 @@ function Header() {
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
           
-          // Riattiva l'observer dopo un delay
+          // Reactivate observer after delay
           setTimeout(() => {
-            setIsNavigating(false);
-            setClickedSection(null);
-            setIsAutoScrolling(false); // Questo ricreerà l'observer tramite useEffect
+            setIsAutoScrolling(false);
           }, 2000);
         }
       }, 200);
       return;
     }
 
-    // Scroll verso la sezione sulla home page
+    // Scroll to section on homepage
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       
-      // Riattiva l'observer dopo un delay fisso
+      // Reactivate observer after fixed delay
       setTimeout(() => {
-        setIsNavigating(false);
-        setClickedSection(null);
-        setIsAutoScrolling(false); // Questo ricreerà l'observer tramite useEffect
+        setIsAutoScrolling(false);
       }, 2000);
     }
-  };
+  }, [location.pathname, navigate]);
 
-  const handleMenuToggle = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const handleMenuToggle = useCallback(() => {
+    setIsMenuOpen(prev => !prev);
+  }, []);
 
-  const handleNavClickWithMenuClose = (sectionId) => {
+  const handleNavClickWithMenuClose = useCallback((sectionId) => {
     handleNavClick(sectionId);
-    setIsMenuOpen(false); // Chiude il menu dopo il click
-  };
+    setIsMenuOpen(false);
+  }, [handleNavClick]);
 
-  const handleArchiveClick = () => {
-    // Forza lo scroll all'inizio prima di navigare
+  const handleArchiveClick = useCallback(() => {
+    // Force scroll to top before navigating
     window.scrollTo(0, 0);
     setIsMenuOpen(false);
-  };
+  }, []);
 
   return (
     <header className="header">
       <div className="container">
-        {/* Pulsante Archivio separato a sinistra */}
+        {/* Separate Archive section on the left */}
         <div className="archive-section">
           <Link 
             to="/all-projects" 
@@ -210,8 +202,8 @@ function Header() {
           </Link>
         </div>
 
-        {/* Menu mobile hamburger */}
-        <button className="menu-toggle" onClick={handleMenuToggle}>
+        {/* Mobile hamburger menu */}
+        <button className="menu-toggle" onClick={handleMenuToggle} aria-label="Toggle menu">
           <span className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
             <span></span>
             <span></span>
@@ -222,17 +214,17 @@ function Header() {
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           <ul>
             <li><button onClick={() => handleNavClickWithMenuClose('home')} className={`nav-button ${activeSection === 'home' ? 'active' : ''}`}>{t('home')}</button></li>
-            <li className="nav-divider">|</li>
+            <li className="nav-divider" aria-hidden="true">|</li>
             <li><button onClick={() => handleNavClickWithMenuClose('about')} className={`nav-button ${activeSection === 'about' ? 'active' : ''}`}>{t('about')}</button></li>
-            <li className="nav-divider">|</li>
+            <li className="nav-divider" aria-hidden="true">|</li>
             <li><button onClick={() => handleNavClickWithMenuClose('skills')} className={`nav-button ${activeSection === 'skills' ? 'active' : ''}`}>{t('skills')}</button></li>
-            <li className="nav-divider">|</li>
+            <li className="nav-divider" aria-hidden="true">|</li>
             <li><button onClick={() => handleNavClickWithMenuClose('projects')} className={`nav-button ${activeSection === 'projects' ? 'active' : ''}`}>{t('projects')}</button></li>
-            <li className="nav-divider">|</li>
+            <li className="nav-divider" aria-hidden="true">|</li>
             <li><button onClick={() => handleNavClickWithMenuClose('contact')} className={`nav-button ${activeSection === 'contact' ? 'active' : ''}`}>{t('contact')}</button></li>
           </ul>
           
-          {/* Mostra le azioni nel menu mobile */}
+          {/* Show actions in mobile menu */}
           <div className="nav-mobile-actions">
             <Link 
               to="/all-projects" 

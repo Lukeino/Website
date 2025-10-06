@@ -1,0 +1,278 @@
+/**
+ * All Projects Page Styles
+ * Author: Luca Iantosco
+ * Description: Detailed projects archive page with tables
+ * Date: January 2025
+ */
+
+/* ==========================================
+   ALL PROJECTS PAGE BASE
+   ========================================== */
+.all-projects-page {
+  padding-top: 100px;
+  background: var(--primary-bg);
+  min-height: 100vh;
+}
+
+.all-projects-section {
+  padding: 2rem 0;
+}
+
+/* ==========================================
+   PROJECT TABLES
+   ========================================== */
+.table-responsive {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.project-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: rgba(13, 17, 23, 0.8);
+  border: 1px solid rgba(0, 122, 204, 0.2);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* ==========================================
+   TABLE HEADER
+   ========================================== */
+.project-table thead {
+  background: linear-gradient(135deg, rgba(0, 122, 204, 0.15) 0%, rgba(13, 17, 23, 0.9) 100%);
+}
+
+.project-table thead th {
+  padding: 1.2rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  border-bottom: 2px solid rgba(0, 122, 204, 0.3);
+  position: relative;
+  text-align: left;
+}
+
+.project-table thead th:not(:last-child) {
+  border-right: 1px solid rgba(0, 122, 204, 0.1);
+}
+
+/* ==========================================
+   TABLE BODY
+   ========================================== */
+.project-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all var(--transition-normal);
+  background: rgba(10, 10, 10, 0.4);
+}
+
+.project-table tbody tr:nth-child(even) {
+  background: rgba(22, 27, 34, 0.6);
+}
+
+.project-table tbody tr:hover {
+  background: rgba(0, 122, 204, 0.1);
+  border-color: rgba(0, 122, 204, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 122, 204, 0.2);
+}
+
+.project-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.project-table td {
+  padding: 1.5rem;
+  vertical-align: top;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-table td:last-child {
+  border-right: none;
+}
+
+/* ==========================================
+   TABLE CONTENT
+   ========================================== */
+.project-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.project-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.project-actions {
+  width: 120px;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ==========================================
+   PROJECT THUMBNAILS
+   ========================================== */
+.project-thumbnail {
+  width: 120px;
+  text-align: center;
+  padding: 1rem 0.5rem;
+}
+
+.project-table-img {
+  width: 100px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 2px solid rgba(0, 122, 204, 0.3);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.project-table-img:hover {
+  border-color: var(--accent-color);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+}
+
+.placeholder-thumbnail {
+  width: 100px;
+  height: 75px;
+  background: rgba(22, 27, 34, 0.8);
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 auto;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+/* Tablets */
+@media (max-width: 968px) {
+  .project-table {
+    font-size: 0.9rem;
+  }
+  
+  .project-table thead th {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .project-table td {
+    padding: 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .all-projects-page {
+    padding: 1rem;
+    padding-top: 80px;
+  }
+  
+  .all-projects-page .container {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+  
+  .category-title {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem 0;
+  }
+  
+  .all-projects-page h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .project-category {
+    margin-bottom: 3rem;
+  }
+  
+  .table-responsive {
+    margin: 1rem 0 2rem 0;
+    padding: 0;
+  }
+  
+  .all-projects-page {
+    overflow-x: hidden;
+  }
+  
+  .all-projects-page .header {
+    padding: 0.5rem 1rem;
+  }
+  
+  .all-projects-section {
+    padding: 2rem 0;
+  }
+  
+  /* Mobile table styling */
+  .project-thumbnail {
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 0;
+  }
+  
+  .project-table-img,
+  .placeholder-thumbnail {
+    width: 80px;
+    height: 60px;
+    margin: 0;
+  }
+  
+  .project-table td[data-label="Thumbnail"]:before,
+  .project-table td[data-label="thumbnail"]:before {
+    content: "Preview: ";
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .all-projects-page .container {
+    padding: 0 0.5rem;
+  }
+  
+  .category-title {
+    font-size: 1.3rem;
+  }
+  
+  .all-projects-page h2 {
+    font-size: 1.8rem;
+  }
+  
+  .project-category {
+    margin-bottom: 2rem;
+  }
+  
+  .project-table thead th {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .project-table td {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .project-title {
+    font-size: 1rem;
+  }
+  
+  .project-description {
+    font-size: 0.85rem;
+  }
+}

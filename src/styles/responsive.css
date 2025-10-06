@@ -1,0 +1,340 @@
+/**
+ * Responsive Styles
+ * Author: Luca Iantosco
+ * Description: Global responsive utilities and media queries
+ * Date: January 2025
+ */
+
+/* ==========================================
+   BREAKPOINTS
+   - xs: 0-480px (Small mobile)
+   - sm: 481-768px (Mobile)
+   - md: 769-968px (Tablets)
+   - lg: 969-1024px (Small desktop)
+   - xl: 1025px+ (Desktop)
+   ========================================== */
+
+/* ==========================================
+   LARGE SCREENS (Desktop)
+   ========================================== */
+@media (min-width: 1025px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* ==========================================
+   MEDIUM SCREENS (Tablets & Small Desktop)
+   ========================================== */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  /* Hide some decorative elements for performance */
+  body::before {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 968px) {
+  /* Typography scaling */
+  h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+  }
+  
+  h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  }
+  
+  h3 {
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  }
+  
+  /* Sections padding */
+  .hero,
+  .about,
+  .skills-section,
+  .projects,
+  .contact {
+    padding: 80px 0 60px 0;
+  }
+}
+
+/* ==========================================
+   SMALL SCREENS (Mobile)
+   ========================================== */
+@media (max-width: 768px) {
+  /* Container adjustments */
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  /* Typography */
+  h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+  
+  h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    margin-bottom: 2rem;
+  }
+  
+  h3 {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  }
+  
+  p {
+    font-size: 0.95rem;
+  }
+  
+  /* Section spacing */
+  section {
+    padding: 60px 0 40px 0;
+  }
+  
+  /* Reduce animations and effects for performance */
+  body::before {
+    opacity: 0.3;
+    background-size: 30px 30px;
+  }
+  
+  /* Disable heavy animations */
+  .hero-pixels,
+  .scanlines::before {
+    display: none;
+  }
+  
+  /* Grid adjustments */
+  .projects-grid,
+  .skills-grid {
+    gap: 1rem;
+  }
+  
+  /* Card spacing */
+  .project-card,
+  .skill-item {
+    margin-bottom: 1rem;
+  }
+}
+
+/* ==========================================
+   EXTRA SMALL SCREENS (Small Mobile)
+   ========================================== */
+@media (max-width: 480px) {
+  /* Container */
+  .container {
+    padding: 0 1rem;
+  }
+  
+  /* Typography */
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+  
+  h2 {
+    font-size: clamp(1.3rem, 4vw, 1.75rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  h3 {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+  }
+  
+  p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  /* Section spacing */
+  section {
+    padding: 50px 0 30px 0;
+  }
+  
+  /* Further reduce background effects */
+  body::before {
+    opacity: 0.2;
+    background-size: 40px 40px;
+  }
+  
+  /* Button adjustments */
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  /* Grid adjustments */
+  .projects-grid,
+  .skills-grid {
+    gap: 0.75rem;
+  }
+}
+
+/* ==========================================
+   LANDSCAPE ORIENTATION (Mobile & Tablets)
+   ========================================== */
+@media (max-width: 968px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: 100px 0 60px 0;
+  }
+  
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* ==========================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ========================================== */
+@media (hover: none) and (pointer: coarse) {
+  /* Increase tap target sizes */
+  .btn,
+  .btn-icon,
+  .nav a,
+  .nav-button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Remove hover effects on touch devices */
+  .project-card:hover,
+  .skill-item:hover,
+  .btn:hover {
+    transform: none;
+  }
+  
+  /* Keep box-shadow on hover for feedback */
+  .project-card:active {
+    transform: translateY(-4px);
+  }
+}
+
+/* ==========================================
+   HIGH RESOLUTION DISPLAYS
+   ========================================== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Optimize images and effects for retina displays */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+  
+  /* Sharper borders and shadows */
+  .project-card,
+  .skill-item,
+  .contact-form {
+    border-width: 0.5px;
+  }
+}
+
+/* ==========================================
+   PRINT MEDIA
+   ========================================== */
+@media print {
+  /* Hide non-essential elements */
+  .header,
+  .footer,
+  .hero-pixels,
+  .scroll-indicator,
+  body::before {
+    display: none;
+  }
+  
+  /* Optimize for printing */
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+  
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  section {
+    page-break-inside: avoid;
+    padding: 20px 0;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION (Accessibility)
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable all decorative animations */
+  .hero-pixels,
+  .scanlines::before,
+  body::before {
+    animation: none !important;
+  }
+}
+
+/* ==========================================
+   DARK MODE (System Preference)
+   ========================================== */
+@media (prefers-color-scheme: dark) {
+  /* Already dark by default, but we can enhance contrast */
+  :root {
+    --text-primary: #ffffff;
+    --text-secondary: #e8e8e8;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  /* Optional: Add light mode support in the future */
+  /* Currently portfolio is dark-themed only */
+}
+
+/* ==========================================
+   REDUCED DATA MODE (Save bandwidth)
+   ========================================== */
+@media (prefers-reduced-data: reduce) {
+  /* Disable background images and effects */
+  body::before,
+  .hero::before,
+  .hero-pixels {
+    display: none;
+  }
+  
+  /* Remove gradients */
+  .btn-primary,
+  .btn-secondary {
+    background: var(--primary-color);
+  }
+}
+
+/* ==========================================
+   UTILITY RESPONSIVE CLASSES
+   ========================================== */
+
+/* Hide on mobile */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Hide on desktop */
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+/* Show only on mobile */
+@media (min-width: 769px) {
+  .mobile-only {
+    display: none !important;
+  }
+}

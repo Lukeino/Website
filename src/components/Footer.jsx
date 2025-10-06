@@ -2,7 +2,7 @@
  * Footer Component
  * Author: Luca Iantosco
  * Description: Simple footer with copyright information
- * Date: June 2, 2025
+ * Date: January 2025
  */
 
 import React from 'react'
@@ -10,12 +10,14 @@ import { useLanguage } from '../contexts/LanguageContext'
 
 function Footer() {
   const { t } = useLanguage()
+  const currentYear = new Date().getFullYear()
+  
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
           <div className="footer-text">
-            <p>&copy; 2025 Luca Iantosco. {t('allRightsReserved')}</p>
+            <p>&copy; {currentYear} Luca Iantosco. {t('allRightsReserved')}</p>
           </div>
         </div>
       </div>
@@ -23,4 +25,4 @@ function Footer() {
   )
 }
 
-export default Footer
+export default React.memo(Footer)

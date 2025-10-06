@@ -2,7 +2,7 @@
  * About Component
  * Author: Luca Iantosco
  * Description: Personal introduction section with profile image and bio
- * Date: June 2, 2025
+ * Date: January 2025
  */
 
 import React from 'react';
@@ -22,7 +22,13 @@ function About() {
         <div className="about-content">
           <div className="about-image">
             <div className="profile-image">
-              <img src={profileImage} alt="Luca Iantosco" />
+              <img 
+                src={profileImage} 
+                alt="Luca Iantosco" 
+                loading="lazy"
+                width="320"
+                height="320"
+              />
             </div>
             
             {/* Education Section */}
@@ -30,30 +36,31 @@ function About() {
               <h3 className="education-title">{t('educationTitle')}</h3>
               <div className="education-content">
                 <div className="university-logo">
-                  <img src={unibaImage} alt="Università degli Studi di Bari Aldo Moro" />
+                  <img 
+                    src={unibaImage} 
+                    alt="University of Bari Aldo Moro" 
+                    loading="lazy"
+                    width="100"
+                    height="100"
+                  />
                 </div>
                 <div className="education-info">
-                  <h4 className="degree-title" dangerouslySetInnerHTML={{ __html: t('degreeTitle') }}></h4>
+                  <h4 
+                    className="degree-title" 
+                    dangerouslySetInnerHTML={{ __html: t('degreeTitle') }}
+                  />
                   <p className="university-name">{t('universityName')}</p>
                 </div>
               </div>
             </div>
-          </div>          <div className="about-text">
-            <p>
-              {t('aboutDescription1')}
-            </p>
-            <p>
-              {t('aboutDescription2')}
-            </p>
-            <p>
-              {t('aboutDescription3')}
-            </p>
-            <p>
-              {t('aboutDescription4')}
-            </p>
-            <p>
-              {t('aboutDescription5')}
-            </p>
+          </div>
+          
+          <div className="about-text">
+            <p>{t('aboutDescription1')}</p>
+            <p>{t('aboutDescription2')}</p>
+            <p>{t('aboutDescription3')}</p>
+            <p>{t('aboutDescription4')}</p>
+            <p>{t('aboutDescription5')}</p>
           </div>
         </div>
       </div>
@@ -61,4 +68,4 @@ function About() {
   );
 }
 
-export default About;
+export default React.memo(About);

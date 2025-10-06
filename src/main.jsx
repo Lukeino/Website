@@ -1,10 +1,17 @@
+/**
+ * Main Entry Point
+ * Author: Luca Iantosco
+ * Description: React application entry with language context and CSS imports
+ * Date: January 2025
+ */
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { LanguageProvider } from './contexts/LanguageContext'
-import './styles/index.css'
+import './styles/index.css' // Main CSS entry point with all modular imports
 
-// Imposta uno stile temporaneo per prevenire lo scroll durante il caricamento iniziale
+// Temporary style to prevent scroll during initial load
 if (typeof document !== 'undefined') {
   const style = document.createElement('style');
   style.innerHTML = `
@@ -16,7 +23,7 @@ if (typeof document !== 'undefined') {
   style.id = 'initial-no-scroll';
   document.head.appendChild(style);
   
-  // Rimuove lo stile dopo il caricamento completo
+  // Remove style after complete load
   window.addEventListener('load', () => {
     setTimeout(() => {
       const styleElem = document.getElementById('initial-no-scroll');

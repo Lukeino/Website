@@ -2,10 +2,10 @@
  * LanguageContext
  * Author: Luca Iantosco
  * Description: React context for multi-language support with Italian and English translations
- * Date: June 2, 2025
+ * Date: January 2025
  */
 
-import React, { createContext, useContext, useState, useEffect } from 'react'
+import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react'
 
 // Translation data
 const translations = {
@@ -329,30 +329,37 @@ const LanguageContext = createContext()
 
 // Provider
 export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState('it') // Default italiano
+  const [language, setLanguage] = useState('it') // Default Italian
 
-  // Aggiorna l'attributo lang dell'HTML quando cambia la lingua
+  // Update HTML lang attribute when language changes
   useEffect(() => {
     document.documentElement.lang = language
-    document.title = language === 'it' ? 'Luca Iantosco - Portfolio' : 'Luca Iantosco - Portfolio'
+    document.title = 'Luca Iantosco - Portfolio'
   }, [language])
 
-  const toggleLanguage = () => {
+  const toggleLanguage = useCallback(() => {
     setLanguage(prevLang => prevLang === 'it' ? 'en' : 'it')
-  }
+  }, [])
 
-  const t = (key) => {
+  const t = useCallback((key) => {
     return translations[language][key] || key
-  }
+  }, [language])
+
+  // Memoize context value to prevent unnecessary re-renders
+  const contextValue = useMemo(() => ({
+    language,
+    toggleLanguage,
+    t
+  }), [language, toggleLanguage, t])
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+    <LanguageContext.Provider value={contextValue}>
       {children}
     </LanguageContext.Provider>
   )
 }
 
-// Hook personalizzato
+// Custom hook
 export function useLanguage() {
   const context = useContext(LanguageContext)
   if (!context) {

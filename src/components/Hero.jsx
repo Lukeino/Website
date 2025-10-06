@@ -2,7 +2,7 @@
  * Hero Component
  * Author: Luca Iantosco
  * Description: Main landing section with animated typewriter effect for title variations
- * Date: June 2, 2025
+ * Date: January 2025
  */
 
 import React from 'react'
@@ -30,13 +30,14 @@ function Hero() {
         </div>
       </div>
       
-      {/* Scroll indicator - posizionato al margine della hero section */}
-      <div className="scroll-indicator">
+      {/* Scroll indicator - positioned at the bottom of hero section */}
+      <div className="scroll-indicator" aria-label="Scroll down">
         <svg 
           width="24" 
           height="24" 
           viewBox="0 0 24 24" 
           fill="none"
+          aria-hidden="true"
         >
           <path 
             d="M7 10l5 5 5-5" 

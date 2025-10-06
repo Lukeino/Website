@@ -1,0 +1,301 @@
+/**
+ * Animations
+ * Author: Luca Iantosco
+ * Description: All keyframe animations and transition classes
+ * Date: January 2025
+ */
+
+/* ==========================================
+   BOUNCE ANIMATIONS
+   ========================================== */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* ==========================================
+   GLOW ANIMATIONS
+   ========================================== */
+@keyframes glowBreathing {
+  0%, 100% { 
+    box-shadow: 
+      0 0 15px rgba(0, 122, 204, 0.2),
+      inset 0 0 10px rgba(0, 122, 204, 0.05);
+  }
+  50% { 
+    box-shadow: 
+      0 0 30px rgba(0, 122, 204, 0.6),
+      inset 0 0 20px rgba(0, 122, 204, 0.15);
+  }
+}
+
+/* ==========================================
+   PULSE ANIMATIONS
+   ========================================== */
+@keyframes pulse-green {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 4px rgba(40, 167, 69, 0.6);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.2);
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.8);
+  }
+}
+
+/* ==========================================
+   TYPEWRITER ANIMATION
+   ========================================== */
+@keyframes typewriter-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ==========================================
+   SCANLINES ANIMATION
+   ========================================== */
+@keyframes scanlineMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+/* ==========================================
+   HERO PIXEL ANIMATIONS (Optimized)
+   ========================================== */
+@keyframes heroPixelFloat {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.3;
+    transform: translate(calc(var(--x-movement) * var(--direction) * 0.4), calc(var(--y-movement) * -0.2)) scale(1.0) rotate(90deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(calc(var(--x-movement) * var(--direction) * -0.2), calc(var(--y-movement) * -0.4)) scale(1.2) rotate(180deg);
+  }
+  75% {
+    opacity: 0.3;
+    transform: translate(calc(var(--x-movement) * var(--direction) * 0.3), calc(var(--y-movement) * -0.3)) scale(0.8) rotate(270deg);
+  }
+}
+
+@keyframes heroPixelFloat2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  30% {
+    transform: translate(calc(var(--x-movement) * var(--direction) * -0.3), calc(var(--y-movement) * 0.3)) scale(1.0) rotate(-60deg);
+    opacity: 0.4;
+  }
+  60% {
+    transform: translate(calc(var(--x-movement) * var(--direction) * 0.4), calc(var(--y-movement) * -0.3)) scale(0.9) rotate(120deg);
+    opacity: 0.35;
+  }
+}
+
+@keyframes heroPixelFloat3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  40% {
+    transform: translate(calc(var(--x-movement) * var(--direction) * 0.5), calc(var(--y-movement) * -0.15)) scale(1.1) rotate(100deg);
+    opacity: 0.45;
+  }
+  70% {
+    transform: translate(calc(var(--x-movement) * var(--direction) * -0.3), calc(var(--y-movement) * -0.25)) scale(0.85) rotate(200deg);
+    opacity: 0.3;
+  }
+}
+
+/* ==========================================
+   SCROLL ANIMATIONS
+   ========================================== */
+
+/* Base scroll animation */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade up */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-up.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scale in */
+.scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scale-in.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Slide left */
+.slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-left.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide right */
+.slide-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-right.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Custom scroll animations (luca prefix) */
+.luca-scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luca-scroll-animate.luca-animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.luca-stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luca-stagger-item.luca-animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.luca-scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luca-scale-in.luca-animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.luca-slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luca-slide-left.luca-animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.luca-slide-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luca-slide-right.luca-animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.luca-fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luca-fade-up.luca-animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================== */
+
+/* Apply GPU acceleration to animated elements */
+.scroll-animate,
+.fade-up,
+.scale-in,
+.slide-left,
+.slide-right,
+.luca-scroll-animate,
+.luca-stagger-item,
+.luca-scale-in,
+.luca-slide-left,
+.luca-slide-right,
+.luca-fade-up {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================
+   REDUCED MOTION (Accessibility)
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all scroll animations */
+  .scroll-animate,
+  .fade-up,
+  .scale-in,
+  .slide-left,
+  .slide-right,
+  .luca-scroll-animate,
+  .luca-stagger-item,
+  .luca-scale-in,
+  .luca-slide-left,
+  .luca-slide-right,
+  .luca-fade-up {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  /* Disable all keyframe animations */
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
