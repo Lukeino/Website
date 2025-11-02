@@ -28,6 +28,10 @@
   color: var(--text-secondary);
 }
 
+[data-theme="light"] .footer-text p {
+  color: #1a1a1a;
+}
+
 /* ==========================================
    FOOTER LINKS
    ========================================== */

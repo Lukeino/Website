@@ -24,8 +24,8 @@
 .table-responsive {
   overflow-x: auto;
   margin: 2rem 0;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .project-table {
@@ -33,52 +33,72 @@
   border-collapse: separate;
   border-spacing: 0;
   background: rgba(13, 17, 23, 0.8);
-  border: 1px solid rgba(0, 122, 204, 0.2);
-  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0;
   overflow: hidden;
+  table-layout: auto;
+}
+
+[data-theme="light"] .project-table {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* ==========================================
    TABLE HEADER
    ========================================== */
 .project-table thead {
-  background: linear-gradient(135deg, rgba(0, 122, 204, 0.15) 0%, rgba(13, 17, 23, 0.9) 100%);
-}
-
-.project-table thead th {
-  padding: 1.2rem 1.5rem;
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--primary-color);
-  border-bottom: 2px solid rgba(0, 122, 204, 0.3);
-  position: relative;
-  text-align: left;
-}
-
-.project-table thead th:not(:last-child) {
-  border-right: 1px solid rgba(0, 122, 204, 0.1);
+  display: none;
 }
 
 /* ==========================================
    TABLE BODY
    ========================================== */
 .project-table tbody tr {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: none;
   transition: all var(--transition-normal);
-  background: rgba(10, 10, 10, 0.4);
+  background: rgba(13, 17, 23, 0.8);
 }
 
 .project-table tbody tr:nth-child(even) {
-  background: rgba(22, 27, 34, 0.6);
+  background: rgba(13, 17, 23, 0.8);
+}
+
+[data-theme="light"] .project-table tbody tr {
+  border-bottom: none;
+  background: #ffffff;
+}
+
+[data-theme="light"] .project-table tbody tr:nth-child(even) {
+  background: #ffffff;
 }
 
 .project-table tbody tr:hover {
-  background: rgba(0, 122, 204, 0.1);
-  border-color: rgba(0, 122, 204, 0.3);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 122, 204, 0.2);
+  background: rgba(13, 17, 23, 0.8);
+  border-color: transparent;
+  transform: none;
+  box-shadow: none;
+}
+
+.project-table tbody tr:nth-child(even):hover {
+  background: rgba(13, 17, 23, 0.8);
+  border-color: transparent;
+  transform: none;
+  box-shadow: none;
+}
+
+[data-theme="light"] .project-table tbody tr:hover {
+  background: #ffffff;
+  border-color: transparent;
+  transform: none;
+  box-shadow: none;
+}
+
+[data-theme="light"] .project-table tbody tr:nth-child(even):hover {
+  background: #ffffff;
+  border-color: transparent;
+  transform: none;
+  box-shadow: none;
 }
 
 .project-table tbody tr:last-child {
@@ -103,57 +123,64 @@
   color: var(--text-primary);
   font-size: 1.1rem;
   line-height: 1.4;
+  width: 30%;
+  min-width: 30%;
+}
+
+[data-theme="light"] .project-title {
+  color: #000000;
 }
 
 .project-description {
   color: var(--text-secondary);
   line-height: 1.6;
   font-size: 0.95rem;
+  width: auto;
+}
+
+[data-theme="light"] .project-description {
+  color: #1a1a1a;
 }
 
 .project-actions {
   width: 120px;
+  min-width: 120px;
+  max-width: 120px;
   text-align: center;
   padding: 1rem;
 }
 
 /* ==========================================
-   PROJECT THUMBNAILS
+   PROJECT THUMBNAILS - HIDDEN
    ========================================== */
 .project-thumbnail {
-  width: 120px;
-  text-align: center;
-  padding: 1rem 0.5rem;
+  display: none;
 }
 
 .project-table-img {
-  width: 100px;
-  height: 75px;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-  border: 2px solid rgba(0, 122, 204, 0.3);
-  transition: all var(--transition-normal);
-  box-shadow: var(--shadow-sm);
+  display: none;
 }
 
 .project-table-img:hover {
-  border-color: var(--accent-color);
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+  display: none;
+}
+
+[data-theme="light"] .project-table-img {
+  display: none;
 }
 
 .placeholder-thumbnail {
-  width: 100px;
-  height: 75px;
-  background: rgba(22, 27, 34, 0.8);
-  border: 2px dashed rgba(255, 255, 255, 0.3);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin: 0 auto;
+  display: none;
+}
+
+/* Rows without thumbnail - expand title and description */
+.project-table tbody tr.no-thumbnail .project-title {
+  width: 30%;
+  min-width: 30%;
+}
+
+.project-table tbody tr.no-thumbnail .project-description {
+  width: auto;
 }
 
 /* ==========================================

@@ -14,8 +14,14 @@
   align-items: center;
   background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
   padding-top: 80px;
+  padding-bottom: 0;
+  margin-bottom: 100px;
   position: relative;
   overflow: hidden;
+}
+
+[data-theme="light"] .hero {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 50%, #ffffff 100%);
 }
 
 .hero::before {
@@ -30,6 +36,13 @@
     radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 40% 80%, rgba(78, 205, 196, 0.1) 0%, transparent 50%);
   pointer-events: none;
+}
+
+[data-theme="light"] .hero::before {
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 122, 204, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(78, 205, 196, 0.08) 0%, transparent 50%);
 }
 
 .hero .container {
@@ -125,7 +138,6 @@
   animation: bounce 2s infinite;
   opacity: 0.8;
   transition: opacity var(--transition-normal);
-  cursor: pointer;
   z-index: 2;
 }
 
@@ -156,8 +168,9 @@
 /* Mobile */
 @media (max-width: 768px) {
   .hero {
-    min-height: 90vh;
-    padding-top: 100px;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 60px;
   }
   
   .hero::before {
@@ -165,14 +178,18 @@
   }
   
   .hero-content h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    line-height: 1.1;
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    line-height: 1.2;
     margin-bottom: 1.5rem;
   }
   
   .hero-content h2 {
-    font-size: clamp(1.1rem, 3vw, 1.25rem);
+    font-size: clamp(1.2rem, 3.5vw, 1.5rem);
     margin-bottom: 2rem;
+  }
+  
+  .hero-content p {
+    font-size: clamp(1rem, 2vw, 1.1rem);
   }
   
   .hero-buttons {
@@ -199,12 +216,21 @@
 /* Small mobile */
 @media (max-width: 480px) {
   .hero {
-    min-height: 85vh;
-    padding-top: 90px;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 50px;
   }
   
   .hero::before {
     opacity: 0.3;
+  }
+  
+  .hero-content h1 {
+    font-size: clamp(2rem, 7vw, 2.8rem);
+  }
+  
+  .hero-content h2 {
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
   }
   
   .scroll-indicator {

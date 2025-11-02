@@ -72,7 +72,6 @@ function Contact() {
   return (
     <section id="contact" className="contact" ref={sectionRef}>
       <div className="container">
-        <h2 className="pixel-text">{t('contactTitle')}</h2>
         <div className="contact-content">
           <div className="contact-info">
             <h3 className="pixel-text">{t('contactSubtitle')}</h3>

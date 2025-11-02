@@ -31,22 +31,6 @@ const projectThumbnails = {
 // Table Row Component (Memoized)
 const TableRow = React.memo(({ project, t }) => (
   <tr className="luca-stagger-item">
-    <td data-label={t('thumbnail')} className="project-thumbnail">
-      {project.thumbnail ? (
-        <img 
-          src={project.thumbnail} 
-          alt={project.title} 
-          className="project-table-img"
-          loading="lazy"
-          width="100"
-          height="75"
-        />
-      ) : (
-        <div className="placeholder-thumbnail">
-          <span>📷</span>
-        </div>
-      )}
-    </td>
     <td data-label={t('projectTitle')} className="project-title">{project.title}</td>
     <td data-label={t('projectDescription')} className="project-description">{project.description}</td>
     <td data-label="" className="project-actions">
@@ -187,7 +171,7 @@ function AllProjectsPage() {
       },
       {
         id: 'proto4',
-        title: 'VortexCorp Lost Tapes',
+        title: 'The Kaladbolg Chronicles: Lost Tapes',
         description: t('vortexCorpDesc'),
         downloadLink: 'https://mega.nz/file/DC5FRSQb#K1ghRzG3YO0_tUIjDi6ULX7LoVhvzyBik5lq_u5aekc',
         thumbnail: projectThumbnails['VortexCorp Lost Tapes']
@@ -196,7 +180,7 @@ function AllProjectsPage() {
     sklearn: [
       {
         id: 'ml1',
-        title: 'Predizione Prezzo Laptop',
+        title: 'Predizione Sklearn: Prezzo Laptop',
         description: t('laptopPricePredictionDesc'),
         githubLink: 'https://github.com/Lukeino/ML-Sklearn-Projects/tree/main/LaptopPricePrediction',
         thumbnail: projectThumbnails['Predizione Prezzo Laptop']
@@ -225,8 +209,6 @@ function AllProjectsPage() {
         ref={sectionRef}
       >
         <div className="container">
-          <h2 className="pixel-text">{t('allProjectsTitle')}</h2>
-
           {/* Software Development Table */}
           <div className="project-category" id="software-development">
             <h3 className="category-title centered-title">{t('softwareDevProjects')}</h3>

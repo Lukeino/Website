@@ -25,16 +25,16 @@ import {
   SiBlender,
   SiGithub,
   SiGit,
-  SiVite,
   SiWireshark,
   SiAudacity,
   SiAngular,
   SiSpringboot,
   SiApachemaven,
   SiDocker,
-  SiAdobephotoshop
+  SiAdobephotoshop,
+  SiApachekafka
 } from 'react-icons/si';
-import { FaBrain, FaJava, FaHtml5, FaJoomla, FaCss3Alt, FaAws } from 'react-icons/fa';
+import { FaBrain, FaJava, FaHtml5, FaJoomla, FaCss3Alt, FaAws, FaVial, FaFlask } from 'react-icons/fa';
 import { TbBrandCSharp } from 'react-icons/tb';
 import { GiBroadsword, GiSpikedDragonHead } from 'react-icons/gi';
 import { BsWindowStack } from "react-icons/bs";
@@ -54,7 +54,6 @@ function Skills() {
   const { t } = useLanguage();
   const sectionRef = useScrollAnimation();
   
-  // Organize skills by category for better maintainability
   const skillCategories = [
     {
       title: t('programmingLanguagesCategory'),
@@ -76,7 +75,6 @@ function Skills() {
         { icon: SiAngular, name: 'Angular' },
         { icon: SiNodedotjs, name: 'Node.js' },
         { icon: SiSpringboot, name: 'Spring Boot' },
-        { icon: SiVite, name: 'Vite' },
         { icon: SiStrapi, name: 'Strapi' },
         { icon: FaJoomla, name: 'Joomla!' },
         { icon: BsWindowStack, name: 'WPF' },
@@ -86,6 +84,7 @@ function Skills() {
         { icon: BiLogoNetlify, name: 'Netlify' },
         { icon: FaAws, name: 'AWS' },
         { icon: SiDocker, name: 'Docker' },
+        { icon: SiApachekafka, name: 'Kafka' },
       ]
     },
     {
@@ -93,6 +92,13 @@ function Skills() {
       skills: [
         { icon: SiMysql, name: 'MySQL' },
         { icon: SiSqlite, name: 'SQLite' },
+      ]
+    },
+    {
+      title: t('testingCategory'),
+      skills: [
+        { icon: FaVial, name: 'JUnit' },
+        { icon: FaFlask, name: 'Mockito' },
       ]
     },
     {
@@ -126,9 +132,8 @@ function Skills() {
   return (
     <section id="skills" className="skills-section scanlines" ref={sectionRef}>
       <div className="container">
-        <h2 className="pixel-text">{t('skillsTitle')}</h2>
         
-        <div className="skills">
+        <div className="skills-wrapper">
           {skillCategories.map((category, index) => (
             <div className="skill-category" key={index}>
               <h4 className="category-title">{category.title}</h4>

@@ -15,8 +15,6 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import AllProjectsPage from './components/AllProjectsPage'
-// Removed: import './styles/App.css'
-// Now using modular CSS imported in main.jsx
 
 // Component to control scroll behavior
 function ScrollToTop() {

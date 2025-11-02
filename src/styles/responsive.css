@@ -52,12 +52,17 @@
   }
   
   /* Sections padding */
-  .hero,
   .about,
   .skills-section,
   .projects,
   .contact {
     padding: 80px 0 60px 0;
+  }
+  
+  /* Hero keeps full height */
+  .hero {
+    min-height: 100vh;
+    padding-top: 80px;
   }
 }
 
@@ -175,8 +180,8 @@
    ========================================== */
 @media (max-width: 968px) and (orientation: landscape) {
   .hero {
-    min-height: auto;
-    padding: 100px 0 60px 0;
+    min-height: 100vh;
+    padding: 80px 0 60px 0;
   }
   
   .scroll-indicator {

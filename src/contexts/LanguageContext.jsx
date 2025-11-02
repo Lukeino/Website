@@ -38,7 +38,7 @@ const translations = {
     heroTitle: "Luca Iantosco",
     heroSubtitle: "Software & Game Developer",
     heroSubtitleVariants: [
-      "Full-Stack Developer",
+      "Full Stack Developer",
       "Game Developer",
     ],
     heroDescription: "Creo mondi virtuali.",
@@ -55,7 +55,7 @@ const translations = {
     
     // Education Section
     educationTitle: "Educazione",
-    degreeTitle: "Laureando in Informatica e<br/>Tecnologie per la Produzione<br/>del Software",
+    degreeTitle: "Informatica e Tecnologie per<br/>la Produzione del Software",
     universityName: "Università degli Studi di Bari Aldo Moro",
     
     skillsTitle: "Le Mie Competenze",
@@ -65,6 +65,7 @@ const translations = {
     programmingLanguagesCategory: "Linguaggi di Programmazione", 
     webDevelopmentCategory: "Sviluppo Software & Web",
     databaseCategory: "DBMS",
+    testingCategory: "Testing",
     securityCategory: "Sicurezza e Analisi",
     aiMlCategory: "AI/ML",
 
@@ -73,7 +74,7 @@ const translations = {
     featuredProjects: "Progetti in Evidenza",
     gameDevProjects: "Game Development", 
     webAppProjects: "Applicazioni Web",
-    researchAiProjects: "Ricerca e IA",
+    researchAiProjects: "Ricerca e Intelligenza Artificiale",
     gamePrototypes: "Prototipi di Gioco",
     mlProjects: "Progetti ML",
     softwareDevProjects: "Software Development",
@@ -83,9 +84,11 @@ const translations = {
     statsConverterTitle: "StatsConverter",
     statsConverterDesc: "Piccolo software sviluppato usando WPF (Windows Presentation Foundation) che sfrutta la tecnologia Google \"Tesseract OCR\" per convertire i file .jpg/.png in .txt",
 
-    // Featured Project - The Kaladbolg Chronicles
-    kaladBolgChroniclesTitle: "The Kaladbolg Chronicles",
-    kaladBolgChroniclesDesc: "Un videogioco 3D Dark Fantasy RPG sviluppato con Unity e integrazione AI (Ollama / llama3.2:3b) per dialoghi e comportamenti di gioco dinamici.", 
+    // Featured Project - Stay out of DARVO
+    stayOutOfDarvoTitle: "Stay out of DARVO",
+    stayOutOfDarvoDesc: "Un videogioco di ruolo in prima persona 3D sviluppato in Unity.",
+    kaladBolgChroniclesTitle: "Stay out of DARVO",
+    kaladBolgChroniclesDesc: "Un videogioco di ruolo in prima persona 3D sviluppato in Unity.",
     developedByAlias: "Sviluppato sotto l'alias Madspace Interactive",
     inDevelopment: "In Sviluppo",
 
@@ -102,7 +105,7 @@ const translations = {
     healthboardDesc: "Applicazione web sviluppata in React, Vite, CSS e SQLite che permette l'accesso al personale medico per gestire il loro Fascicolo Sanitario Elettronico.",
     
     // Old Portfolio Project
-    oldPortfolioTitle: "Portfolio (Vecchia Versione)",
+    oldPortfolioTitle: "Portfolio Website (Legacy)",
     oldPortfolioDesc: "Una vecchia versione più statica del mio sito web portfolio. Sviluppata con HTML, CSS e SCSS.",
 
     projectPortfolio: "Portfolio GameDev",
@@ -195,7 +198,7 @@ const translations = {
     heroTitle: "Luca Iantosco",
     heroSubtitle: "Software & Game Developer",
     heroSubtitleVariants: [
-      "Full-Stack Developer",
+      "Full Stack Developer",
       "Game Developer",
     ],
     heroDescription: "I create virtual worlds.",
@@ -212,7 +215,7 @@ const translations = {
     
     // Education Section
     educationTitle: "Education",
-    degreeTitle: "Bachelor's candidate in<br/>Computer Science",
+    degreeTitle: "Computer Science and Technologies<br/>for Software Production",
     universityName: "University of Bari Aldo Moro",
     
     skillsTitle: "My Skills",
@@ -222,6 +225,7 @@ const translations = {
     programmingLanguagesCategory: "Programming Languages",
     webDevelopmentCategory: "Web & Software Development", 
     databaseCategory: "DBMS",
+    testingCategory: "Testing",
     securityCategory: "Security & Analysis",
     aiMlCategory: "AI/ML",
 
@@ -230,7 +234,7 @@ const translations = {
     featuredProjects: "Featured Projects",
     gameDevProjects: "Game Development",
     webAppProjects: "Web Applications", 
-    researchAiProjects: "Research & AI",
+    researchAiProjects: "Research and Artificial Intelligence",
     gamePrototypes: "Game Prototypes",
     mlProjects: "ML Projects",
     softwareDevProjects: "Software Development",
@@ -240,9 +244,9 @@ const translations = {
     statsConverterTitle: "StatsConverter",
     statsConverterDesc: "Small software developed using WPF (Windows Presentation Foundation) that leverages Google's \"Tesseract OCR\" technology to convert .jpg/.png files to .txt",
 
-    // Featured Project - The Kaladbolg Chronicles
-    kaladBolgChroniclesTitle: "The Kaladbolg Chronicles",
-    kaladBolgChroniclesDesc: "A 3D Dark Fantasy RPG developed with Unity and AI integration (Ollama / llama3.2:3b) for dynamic dialogues and game behaviors.",
+    // Featured Project - Stay out of DARVO
+    kaladBolgChroniclesTitle: "Stay out of DARVO",
+    kaladBolgChroniclesDesc: "A 3D first-person role-playing video game developed in Unity.",
     developedByAlias: "Developed under the Madspace Interactive alias",
     inDevelopment: "In Development",
 

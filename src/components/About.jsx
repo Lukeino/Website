@@ -18,7 +18,6 @@ function About() {
   return (
     <section id="about" className="about-section scanlines" ref={sectionRef}>
       <div className="container">
-        <h2 className="pixel-text">{t('aboutTitle')}</h2>
         <div className="about-content">
           <div className="about-image">
             <div className="profile-image">

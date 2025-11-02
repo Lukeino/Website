@@ -1,19 +1,23 @@
 /**
  * Header Component
  * Author: Luca Iantosco
- * Description: Main navigation header with section links, language toggle, and CV download
+ * Description: Main navigation header with section links, language toggle, and theme toggle
  * Date: January 2025
  */
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useTheme } from '../contexts/ThemeContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { IoSunny, IoMoon } from 'react-icons/io5';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isAutoScrolling, setIsAutoScrolling] = useState(false);
+  const [displayTheme, setDisplayTheme] = useState('dark');
   const { language, toggleLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const navigate = useNavigate();
   
@@ -21,6 +25,11 @@ function Header() {
   const observerRef = useRef(null);
   const scrollHandlerRef = useRef(null);
   
+  useEffect(() => {
+    // Sync displayTheme with actual theme on mount
+    setDisplayTheme(theme);
+  }, [theme]);
+
   useEffect(() => {
     // Highlight "Archive Projects" button when on AllProjectsPage
     if (location.pathname === '/all-projects') {
@@ -179,8 +188,10 @@ function Header() {
     setIsMenuOpen(false);
   }, [handleNavClick]);
 
-  const handleArchiveClick = useCallback(() => {
-    // Force scroll to top before navigating
+  const handleThemeToggle = useCallback((event) => {
+    setDisplayTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    toggleTheme(event);
+  }, [toggleTheme]);  const handleArchiveClick = useCallback(() => {
     window.scrollTo(0, 0);
     setIsMenuOpen(false);
   }, []);
@@ -195,9 +206,6 @@ function Header() {
             className={`archive-projects-btn standalone ${activeSection === 'all-projects' ? 'active' : ''}`}
             onClick={handleArchiveClick}
           >
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style={{ marginRight: '6px' }}>
-              <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-            </svg>
             {t('allProjectsTitle')}
           </Link>
         </div>
@@ -248,19 +256,16 @@ function Header() {
               {language === 'it' ? 'IT' : 'EN'}
             </button>
             
-            <a 
-              href="/CV.pdf" 
-              download="Luca_Iantosco_CV.pdf"
-              className="cv-download-btn mobile"
-              title={t('downloadCV')}
-              onClick={() => setIsMenuOpen(false)}
+            <button 
+              className="theme-toggle mobile"
+              onClick={(e) => {
+                handleThemeToggle(e);
+                setIsMenuOpen(false);
+              }}
+              title={displayTheme === 'dark' ? 'Switch to Light Mode' : 'Passa a Dark Mode'}
             >
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-              </svg>
-              CV
-            </a>
+              {displayTheme === 'dark' ? <IoSunny size={20} /> : <IoMoon size={20} />}
+            </button>
           </div>
         </nav>
         
@@ -273,18 +278,13 @@ function Header() {
             {language === 'it' ? 'IT' : 'EN'}
           </button>
           
-          <a 
-            href="/CV.pdf" 
-            download="Luca_Iantosco_CV.pdf"
-            className="cv-download-btn"
-            title={t('downloadCV')}
+          <button 
+            className="theme-toggle"
+            onClick={handleThemeToggle}
+            title={displayTheme === 'dark' ? 'Switch to Light Mode' : 'Passa a Dark Mode'}
           >
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-              <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-            </svg>
-            CV
-          </a>
+            {displayTheme === 'dark' ? <IoSunny size={20} /> : <IoMoon size={20} />}
+          </button>
         </div>
       </div>
     </header>
