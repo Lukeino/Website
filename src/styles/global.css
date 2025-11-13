@@ -392,12 +392,6 @@ img {
   aspect-ratio: 1 / 1;
 }
 
-/* GPU acceleration hint for transforms */
-.will-change-transform {
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
 /* ==========================================
    REDUCED MOTION (Accessibility)
    ========================================== */

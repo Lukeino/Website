@@ -1,8 +1,9 @@
 /**
  * Animations
  * Author: Luca Iantosco
- * Description: All keyframe animations and transition classes
+ * Description: Optimized keyframe animations and transition classes
  * Date: January 2025
+ * Performance: Removed will-change from CSS (now managed via JS for better memory usage)
  */
 
 /* ==========================================
@@ -128,7 +129,8 @@
 .scroll-animate {
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-animate.animate-in {
@@ -140,7 +142,8 @@
 .fade-up {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fade-up.animate-in {
@@ -152,7 +155,8 @@
 .scale-in {
   opacity: 0;
   transform: scale(0.95);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scale-in.animate-in {
@@ -164,7 +168,8 @@
 .slide-left {
   opacity: 0;
   transform: translateX(-30px);
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .slide-left.animate-in {
@@ -176,7 +181,8 @@
 .slide-right {
   opacity: 0;
   transform: translateX(30px);
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .slide-right.animate-in {
@@ -188,7 +194,8 @@
 .luca-scroll-animate {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .luca-scroll-animate.luca-animate-in {
@@ -199,7 +206,8 @@
 .luca-stagger-item {
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .luca-stagger-item.luca-animate-in {
@@ -210,7 +218,8 @@
 .luca-scale-in {
   opacity: 0;
   transform: scale(0.95);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .luca-scale-in.luca-animate-in {
@@ -221,7 +230,8 @@
 .luca-slide-left {
   opacity: 0;
   transform: translateX(-30px);
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .luca-slide-left.luca-animate-in {
@@ -232,7 +242,8 @@
 .luca-slide-right {
   opacity: 0;
   transform: translateX(30px);
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .luca-slide-right.luca-animate-in {
@@ -243,7 +254,8 @@
 .luca-fade-up {
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .luca-fade-up.luca-animate-in {
@@ -255,21 +267,29 @@
    PERFORMANCE OPTIMIZATIONS
    ========================================== */
 
-/* Apply GPU acceleration to animated elements */
-.scroll-animate,
-.fade-up,
-.scale-in,
-.slide-left,
-.slide-right,
-.luca-scroll-animate,
-.luca-stagger-item,
-.luca-scale-in,
-.luca-slide-left,
-.luca-slide-right,
-.luca-fade-up {
-  will-change: transform, opacity;
+/* 
+ * GPU acceleration hints - only for elements actively animating
+ * will-change is now managed dynamically via JavaScript
+ */
+.scroll-animate.animate-in,
+.fade-up.animate-in,
+.scale-in.animate-in,
+.slide-left.animate-in,
+.slide-right.animate-in,
+.luca-scroll-animate.luca-animate-in,
+.luca-stagger-item.luca-animate-in,
+.luca-scale-in.luca-animate-in,
+.luca-slide-left.luca-animate-in,
+.luca-slide-right.luca-animate-in,
+.luca-fade-up.luca-animate-in {
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Optimize hero pixels to prevent will-change memory overflow */
+.hero-pixel {
+  contain: layout style paint; /* Limits rendering scope */
+  content-visibility: auto; /* Allows browser to skip rendering when off-screen */
 }
 
 /* ==========================================

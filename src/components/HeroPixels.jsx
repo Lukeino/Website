@@ -21,7 +21,7 @@ function HeroPixels() {
     }
     
     // Generate array of pixels with random properties
-    const pixelCount = window.innerWidth <= 1024 ? 8 : 12; // Further reduced for performance
+    const pixelCount = window.innerWidth <= 1024 ? 5 : 8; // Reduced to avoid will-change memory budget
     
     const generatedPixels = Array.from({ length: pixelCount }, (_, i) => ({    
       id: i,
