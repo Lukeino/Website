@@ -50,6 +50,8 @@ const translations = {
     aboutDescription1: "Sono Luca Iantosco, studente di Informatica e Tecnologie per la Produzione del Software.",
     aboutDescription2: "Attualmente possiedo competenze piuttosto versatili nel mio ambito. La maggior parte di queste derivano da progetti come solo dev, esperienze lavorative e dal mio percorso di studi.",
     aboutDescription3: "Credo fermamente che il software migliore nasca dall'equilibrio tra logica ed immaginazione: ogni riga di codice è per me un'opportunità per risolvere un problema, raccontare una storia o costruire qualcosa che abbia un impatto reale sulle persone.",
+    aboutDescription4: "Nel campo del Game Development, pubblico sotto l'alias \"Madspace Interactive\".",
+    aboutDescription5: "Sono sempre alla ricerca di nuove sfide e opportunità per crescere professionalmente e contribuire a progetti innovativi.",
     
     // Education Section
     educationTitle: "Educazione",

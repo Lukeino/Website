@@ -70,58 +70,6 @@
 }
 
 /* ==========================================
-   HERO PIXEL ANIMATIONS (Optimized)
-   ========================================== */
-@keyframes heroPixelFloat {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(0.5) rotate(0deg);
-    opacity: 0;
-  }
-  25% {
-    opacity: 0.3;
-    transform: translate(calc(var(--x-movement) * var(--direction) * 0.4), calc(var(--y-movement) * -0.2)) scale(1.0) rotate(90deg);
-  }
-  50% {
-    opacity: 0.5;
-    transform: translate(calc(var(--x-movement) * var(--direction) * -0.2), calc(var(--y-movement) * -0.4)) scale(1.2) rotate(180deg);
-  }
-  75% {
-    opacity: 0.3;
-    transform: translate(calc(var(--x-movement) * var(--direction) * 0.3), calc(var(--y-movement) * -0.3)) scale(0.8) rotate(270deg);
-  }
-}
-
-@keyframes heroPixelFloat2 {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(0.5) rotate(0deg);
-    opacity: 0;
-  }
-  30% {
-    transform: translate(calc(var(--x-movement) * var(--direction) * -0.3), calc(var(--y-movement) * 0.3)) scale(1.0) rotate(-60deg);
-    opacity: 0.4;
-  }
-  60% {
-    transform: translate(calc(var(--x-movement) * var(--direction) * 0.4), calc(var(--y-movement) * -0.3)) scale(0.9) rotate(120deg);
-    opacity: 0.35;
-  }
-}
-
-@keyframes heroPixelFloat3 {
-  0%, 100% {
-    transform: translate(0px, 0px) scale(0.5) rotate(0deg);
-    opacity: 0;
-  }
-  40% {
-    transform: translate(calc(var(--x-movement) * var(--direction) * 0.5), calc(var(--y-movement) * -0.15)) scale(1.1) rotate(100deg);
-    opacity: 0.45;
-  }
-  70% {
-    transform: translate(calc(var(--x-movement) * var(--direction) * -0.3), calc(var(--y-movement) * -0.25)) scale(0.85) rotate(200deg);
-    opacity: 0.3;
-  }
-}
-
-/* ==========================================
    SCROLL ANIMATIONS
    ========================================== */
 
@@ -284,12 +232,6 @@
 .luca-fade-up.luca-animate-in {
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
-}
-
-/* Optimize hero pixels to prevent will-change memory overflow */
-.hero-pixel {
-  contain: layout style paint; /* Limits rendering scope */
-  content-visibility: auto; /* Allows browser to skip rendering when off-screen */
 }
 
 /* ==========================================

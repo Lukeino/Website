@@ -242,17 +242,3 @@
     height: 18px;
   }
 }
-
-/* Tablets - show fewer pixels for performance */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .hero-pixel:nth-child(n+6) {
-    display: none; /* Show only 5 pixels on tablets to prevent memory overflow */
-  }
-}
-
-/* Desktop - limit pixels to prevent will-change memory budget overflow */
-@media (min-width: 1025px) {
-  .hero-pixel:nth-child(n+9) {
-    display: none; /* Show only 8 pixels on desktop */
-  }
-}

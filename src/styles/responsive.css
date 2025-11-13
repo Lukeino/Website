@@ -105,7 +105,6 @@
   }
   
   /* Disable heavy animations */
-  .hero-pixels,
   .scanlines::before {
     display: none;
   }
@@ -239,7 +238,6 @@
   /* Hide non-essential elements */
   .header,
   .footer,
-  .hero-pixels,
   .scroll-indicator,
   body::before {
     display: none;
@@ -278,7 +276,6 @@
   }
   
   /* Disable all decorative animations */
-  .hero-pixels,
   .scanlines::before,
   body::before {
     animation: none !important;
@@ -307,8 +304,7 @@
 @media (prefers-reduced-data: reduce) {
   /* Disable background images and effects */
   body::before,
-  .hero::before,
-  .hero-pixels {
+  .hero::before {
     display: none;
   }
   
